@@ -6,23 +6,20 @@
     padding: 0;
     background-color: white;
     font-family: "Nunito", sans-serif;
+    padding-top: 18vw;
 }
 
 
 /*ENCABEZADO*/
-nav{
-    background-color: white;
-    box-shadow: 0 0 18px rgb(202, 33, 33);
-    width: 100%;
-    height: 18vw;
-    top: 0;
+/* Encabezado (nav) */
+#navegador{
     position: fixed;
-    z-index: 1000;
-    transition: 0.3s;
-}
-nav:hover{
-    background-color: rgb(255, 140, 140);
-    transition: 0.3s;
+    top: 0;
+    width: 100%;
+    height: 18vw; /* Puedes ajustar el tamaño según la vista */
+    z-index: 1000; /* Asegúrate de que tenga un valor alto para que esté encima del contenido */
+    background-color: white; /* Asegúrate de que tenga un fondo visible */
+    box-shadow: 0 0 18px rgba(202, 33, 33, 0.5);
 }
 
 #navNombre{
@@ -123,19 +120,18 @@ main{
     box-shadow: 0 0 8px black;
 }
 
-#titulo-mascotasperdidas{
-    background-color: black;
+#published-section{
     margin-top: 5vw;
-    padding: 1vw;
     margin-bottom: 180vw;
+    padding: 1vw;
 }
 
-#titulo-mascotasperdidas h1{
-    text-align: center;
+#published-section h2{
     font-size: 7vw;
-    color: white;
+    color: black;
     padding: 1vw;
     margin: 0;
+    border-bottom: 1px solid black;
 }
 
 

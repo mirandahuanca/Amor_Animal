@@ -15,20 +15,20 @@ function publishP() {
     };
 
     // Guardar en LocalStorage
-    let mascotaPublicada = JSON.parse(localStorage.getItem('mascotaPublicada')) || [];
-    mascotaPublicada.push(producto);
-    localStorage.setItem('mascotaPublicada', JSON.stringify(mascotaPublicada));
+    let ProductosPublicados = JSON.parse(localStorage.getItem('ProductosPublicados')) || [];
+    ProductosPublicados.push(producto);
+    localStorage.setItem('ProductosPublicados', JSON.stringify(ProductosPublicados));
 
-    displaymascotaPublicada();
+    displayProductosPublicados();
     alert('La mascota perdida ha sido publicada con éxito.');
 }
 
-function displaymascotaPublicada() {
-    const mascotaPublicada = JSON.parse(localStorage.getItem('mascotaPublicada')) || [];
+function displayProductosPublicados() {
+    const ProductosPublicados = JSON.parse(localStorage.getItem('ProductosPublicados')) || [];
     const publishedPetsContainer = document.getElementById('mascotasPublicadas');
     publishedPetsContainer.innerHTML = ''; // Limpiar contenido previo
 
-    mascotaPublicada.forEach((producto, index) => {
+    ProductosPublicados.forEach((producto, index) => {
         const petElement = document.createElement('div');
         petElement.classList.add('published-pet');
         petElement.innerHTML = `
@@ -78,15 +78,16 @@ function validarArchivo(input) {
 }
 
  // Función para cargar las mascotas publicadas desde localStorage
-function cargarMascotasPublicadas() {
-    const mascotasGuardadas = localStorage.getItem("rproductos");
-    if (mascotasGuardadas) {
-        const mascotas = JSON.parse(mascotasGuardadas);
-        mascotas.forEach(mascota => {
-            publicarMascota(mascota.nombre, mascota.descripcion, mascota.contacto, mascota.imagen, mascota.plantilla);
+ function CargarProductosPublicados() {
+    const productosGuardados = localStorage.getItem("productos");
+    if (productosGuardados) {
+        const productos = JSON.parse(productosGuardados);
+        productos.forEach(producto => {
+            publicarProducto(producto.nombre, producto.precio, producto.stock, producto.imagen);
         });
     }
 }
+
 
  // Función para publicar la mascota (y guardarla en localStorage)
 function publishP() {
@@ -105,10 +106,10 @@ function publishP() {
     };
 
     // Guardar en localStorage
-    guardarMascota(producto);
+    guardarProducto(producto);
 
     // Publicar la mascota con el estilo de la plantilla seleccionada
-    publicarMascota(nombre, precio, stock, imagen);
+    publicarProducto(nombre, precio, stock, imagen);
 
     // Limpiar el formulario
     document.getElementById("edit-form").reset();
@@ -116,22 +117,22 @@ function publishP() {
     document.getElementById("edit-section").style.display = "none"; // Oculta el formulario
 }
 
+
  // Función para guardar la mascota en localStorage
-function guardarMascota(producto) {
-    const mascotasGuardadas = localStorage.getItem("productos");
-    let mascotas = mascotasGuardadas ? JSON.parse(mascotasGuardadas) : [];
-    mascotas.push(producto);
-    localStorage.setItem("productos", JSON.stringify(mascotas));
+ function guardarProducto(producto) {
+    const productosGuardados = localStorage.getItem("productos");
+    let productos = productosGuardados ? JSON.parse(productosGuardados) : [];
+    productos.push(producto);
+    localStorage.setItem("productos", JSON.stringify(productos));
 }
-//AVISO ESTOY SIN EL LIVE, ASI Q NO VEO UN CHOTO DE LA PAGINA
 
  // Función para mostrar la mascota publicada en el DOM
- function publicarMascota(nombre, precio, stock, imagen) {
-    const mascotaDiv = document.createElement("div");
-    mascotaDiv.classList.add("published-mascota");
+ function publicarProducto(nombre, precio, stock, imagen) {
+    const productoDiv = document.createElement("div");
+    productoDiv.classList.add("published-mascota");
 
     // Establece el contenido de la mascota publicada
-    mascotaDiv.innerHTML = `
+    productoDiv.innerHTML = `
         <div class="card">
             <img src="${imagen}" class="card-img-top img-fluid" alt="Producto Imagen">
             <div class="card-body">
@@ -143,13 +144,14 @@ function guardarMascota(producto) {
         </div>
     `;
 
-    document.getElementById("productos").appendChild(mascotaDiv); // Agrega la mascota publicada a la sección
+    document.getElementById("productos").appendChild(productoDiv); // Agrega la mascota publicada a la sección
 }
-// Cargar mascotas al iniciar la página
+
+// Cargar productos al iniciar la página
 
 // Cargar las mascotas publicadas al cargar la página
 window.onload = function() {
-    displaymascotaPublicada();
+    displayProductosPublicados();
 };
 
-window.onload = cargarMascotasPublicadas;
+window.onload = CargarProductosPublicados;

@@ -37,23 +37,25 @@
     color: black;
 }
 
-#formaCorazon {
+/* Formas de imágenes para las diferentes plantillas */
+.formaCorazon {
     clip-path: polygon(0 25%, 26% 14%, 50% 29%, 74% 16%, 100% 26%, 100% 56%, 75% 78%, 49% 100%, 21% 75%, 0 56%);
     width: 80vw;
     height: 80vw;
 }
 
-#formaEstrella{
+.formaEstrella {
     clip-path: polygon(50% 0%, 66% 27%, 98% 35%, 81% 61%, 79% 91%, 50% 80%, 21% 91%, 20% 59%, 2% 35%, 33% 27%);
     width: 80vw;
     height: 80vw;
 }
 
-#formaRedonda{
+.formaRedonda {
     clip-path: circle(46.6% at 50% 50%);
     width: 80vw;
     height: 80vw;
 }
+
 /*
 .template {
     background-color: white;
@@ -121,7 +123,7 @@ button {
 }
 
 button:hover {
-    background-color: #1aa3d0;
+    background-color: #d01a99;
 }
 
 #fileInput {
@@ -138,15 +140,32 @@ button:hover {
     display: none; /* Inicialmente oculta */
 }
 
-#template1{
+.template1 {
     background-color: rgb(245, 118, 213);
-    height: 100%;
+  margin:10vw;
+    padding: 10px;
+    border-radius: 10px;
 }
-#template2{
+
+.template2 {
     background-color: gold;
+    margin:10vw;
+    padding: 10px;
+    border-radius: 10px;
+
 }
-#template3{
+
+.template3 {
     background-color: darkorchid;
+    margin:10vw;
+    padding: 10px;
+    border-radius: 10px;
+    
+  
+  
+}
+.template3 img{
+    width: 80vw;
 }
 /*
 .template {

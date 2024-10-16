@@ -82,7 +82,7 @@
                 <br>
                 <br>
                 <div class="col-auto">
-                    <button type="button" onclick="publishP()">Publicar Producto</button>
+                    <button type="button" onclick="publishP()" style="background-color: blue;">Publicar Producto</button>
                 </div>
             </form>
             </div>
@@ -91,124 +91,178 @@
         <div class="container-titulo">
             <br>
             <h1 class="titulo-tienda">PRODUCTOS</h1>
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-              <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                      <div class="row g-4">
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 1</h5>
-                                      <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 2</h5>
-                                      <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 3</h5>
-                                      <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                      <div class="row g-4">
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto4.jpg" class="card-img-top img-fluid" alt="Producto 4">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 4</h5>
-                                      <p class="card-text">Descripción del producto 4. Este es otro gran producto.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto5.jpg" class="card-img-top img-fluid" alt="Producto 5">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 5</h5>
-                                      <p class="card-text">Descripción del producto 5. Muy recomendable.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto6.jpg" class="card-img-top img-fluid" alt="Producto 6">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 6</h5>
-                                      <p class="card-text">Descripción del producto 6. ¡Te encantará!</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <div class="row g-4">
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto7.jpg" class="card-img-top img-fluid" alt="Producto 7">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 7</h5>
-                                      <p class="card-text">Descripción del producto 7. Ideal para ti.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto8.jpg" class="card-img-top img-fluid" alt="Producto 8">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 8</h5>
-                                      <p class="card-text">Descripción del producto 8. Un must-have.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-12 col-sm-6 col-md-4">
-                              <div class="card">
-                                  <img src="producto9.jpg" class="card-img-top img-fluid" alt="Producto 9">
-                                  <div class="card-body">
-                                      <h5 class="card-title">Producto 9</h5>
-                                      <p class="card-text">Descripción del producto 9. Un gran producto.</p>
-                                      <button class="btn btn-primary">Añadir al carrito</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-           <!----  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>-->
+            <h3>Acessorios</h3>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 1</h5>
+                            <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 2</h5>
+                            <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 3</h5>
+                            <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <h3>Alimentos</h3>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 1</h5>
+                            <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 2</h5>
+                            <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 3</h5>
+                            <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Vestimentas</h3>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 1</h5>
+                            <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 2</h5>
+                            <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 3</h5>
+                            <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Juguetes</h3>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 1</h5>
+                            <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 2</h5>
+                            <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 3</h5>
+                            <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Correas y Collares</h3>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 1</h5>
+                            <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 2</h5>
+                            <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card">
+                        <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto 3</h5>
+                            <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
           </div>
         <br>
         <div class="published-section" id="published-section">
@@ -238,7 +292,7 @@
             </div>
         </div>
         
-        <p>&copy 2024 Grip Sports Argentina</p>
+        <p>© 2024 Amor Animal. Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

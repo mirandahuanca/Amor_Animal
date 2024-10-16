@@ -55,13 +55,12 @@
 
             <div class="templates">
                 <!-- Folleto 1 -->
-                <div id="template1" onclick="selectTemplate('template1')">
-                    <div class="template-header">NOMBRE DEL ANIMAL</div>
+                <div class="template1" onclick="selectTemplate('template1')">
                     <div class="template-body">
-                        <img src="https://via.placeholder.com/150" alt="Mascota" id="formaCorazon" class="template-img">
+                        <img src="https://via.placeholder.com/150" alt="Mascota" class="formaCorazon" class="template-img">
                         <h3>Nombre: Fido</h3>
                         <p>Descripción: Perro marrón, 3 años, amigable.</p>
-                        <p>Telefono: 123-456-789</p>
+                        <p>Teléfono: 123-456-789</p>
                         <div id="botonLoEncontre">
                             <p>Lo encontre</p>
                         </div>
@@ -69,27 +68,23 @@
                 </div>
 
                 <!-- Folleto 2 -->
-                <div id="template2" onclick="selectTemplate('template2')">
-                    
-                    <div class="template-header">¿Has visto esta mascota?</div>
+                <div class="template2" onclick="selectTemplate('template2')">
                     <div class="template-body">
-                        
-                        <img src="https://via.placeholder.com/150" alt="Mascota" id="formaEstrella" class="template-img">
+                        <img src="https://via.placeholder.com/150" alt="Mascota" class="formaEstrella" class="template-img">
                         <h3>Nombre: Luna</h3>
                         <p>Descripción: Gato blanco, ojos verdes, tímida.</p>
-                        <p>Telefono: 987-654-321</p>
+                        <p>Teléfono: 987-654-321</p>
                         <button onclick="seleccionarPlantilla('Plantilla 2')">Seleccionar</button>
                     </div>
                 </div>
 
                 <!-- Folleto 3 -->
-                <div id="template3" onclick="selectTemplate('template3')">
-                    <div class="template-header">¡Se Busca!</div>
+                <div class="template3" onclick="selectTemplate('template3')">
                     <div class="template-body">
-                        <img src="https://via.placeholder.com/150" alt="Mascota" id="formaRedonda" class="template-img">
+                        <img src="https://via.placeholder.com/150" alt="Mascota" class="formaRedonda" class="template-img">
                         <h3>Nombre: Max</h3>
                         <p>Descripción: Conejo gris, orejas largas, juguetón.</p>
-                        <p>Telefono: 555-555-555</p>
+                        <p>Teléfono: 555-555-555</p>
                         <button onclick="seleccionarPlantilla('Plantilla 3')">Seleccionar</button>
                     </div>
                 </div>
@@ -100,44 +95,36 @@
 
 
     <div class="edit-section" id="edit-section">
-        <h2>Edita la Plantilla</h2>
-        <div class="selected-template" id="selected-template">
-            <!-- Aquí se muestra la plantilla seleccionada para editar -->
-        </div>
+       
         <form id="edit-form" onsubmit="return false;"> <!-- Previene la recarga de la página -->
             <label for="pet-name">Nombre de la Mascota:</label>
-            <input type="text" id="pet-name" placeholder="Ej: Fido">
+            <input type="text" id="pet-nombre" placeholder="Ej: Fido">
             
             <label for="pet-description">Descripción:</label>
-            <textarea id="pet-description" rows="3" placeholder="Ej: Perro marrón, amigable"></textarea>
+            <textarea id="pet-descripcion" rows="3" placeholder="Ej: Perro marrón, amigable"></textarea>
             
             <label for="contact-info">Contacto:</label>
-            <input type="text" id="contact-info" placeholder="Ej: 123-456-789">
+            <input type="text" id="telefono" placeholder="Ej: 123-456-789">
 
             <button type="button" id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
-
+            <br>
+            <br>
             <!-- Input de archivo oculto -->
             <input type="file" id="fileInput" accept=".jpg" onchange="validarArchivo(this)" style="display:none;">
             
             <!-- Área de vista previa de la imagen -->
             <img id="imagePreview" alt="Vista previa de la imagen" />
             
-            <button type="button" onclick="publishPet()">Publicar Mascota</button>
+            <button type="button" onclick="publishPet()"  style="background-color: blue;">Publicar Mascota</button>
         </form>
 
             
         </div>
-        <div class="published-section" id="published-section">
-            <br>
-            <br>
-            <h2>Mascotas Perdidas</h2>
-            <div id="mascotasPublicadas">
-                <!-- Aquí se mostrarán las mascotas publicadas -->
-            </div>
-        </div>
-        </div>
+        
         
     </main>
+    <br>
+   
    <!---- <button id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
 
    
@@ -168,7 +155,7 @@
             </div>
         </div>
         
-        <p>&copy 2024 Grip Sports Argentina</p>
+        <p>© 2024 Amor Animal. Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -1,30 +1,29 @@
-function selectTemplate(templateId) {
+function seleccionarPlantilla(templateId) {
     const templates = document.querySelectorAll('.template');
     templates.forEach(template => template.style.border = 'none');
     
     const selectedTemplate = document.getElementById(templateId);
-    selectedTemplate.style.border = '3px solid #2cbdf2';
+    selectedTemplate.style.border = '2px solid red'; // Resaltar la plantilla seleccionada
     
     document.getElementById('edit-section').style.display = 'block';
-    
-    const templateHTML = selectedTemplate.innerHTML;
-    document.getElementById('selected-template').innerHTML = templateHTML;
+
 }
 
+//mirs, viste que para
 function publishPet() {
-    const name = document.getElementById('pet-name').value;
-    const description = document.getElementById('pet-description').value;
-    const contact = document.getElementById('contact-info').value;
+    const nombre = document.getElementById('pet-nombre').value;
+    const descripcion = document.getElementById('pet-descripcion').value;
+    const telefono = document.getElementById('telefono').value;
 
-    if (!name || !description || !contact) {
+    if (nombre==="" || descripcion==="" || telefono==="") {
         alert('Por favor, completa todos los campos.');
         return;
     }
 
     const mascota = {
-        name: name,
-        description: description,
-        contact: contact,
+        nombre: nombre,
+        descripcion: descripcion,
+       telefono:telefono,
     };
 
     // Guardar en LocalStorage
@@ -45,9 +44,9 @@ function displaymascotaPublicada() {
         const petElement = document.createElement('div');
         petElement.classList.add('published-pet');
         petElement.innerHTML = `
-            <h3>Nombre: ${pet.name}</h3>
-            <p>Descripción: ${pet.description}</p>
-            <p>Contacto: ${pet.contact}</p>
+            <h3>Nombre: ${pet.nombre}</h3>
+            <p>Descripción: ${pet.descripcion}</p>
+            <p>telefono: ${pet.contact}</p>
         `;
         publishedPetsContainer.appendChild(petElement);
     });
@@ -63,7 +62,7 @@ function seleccionarPlantilla(nombrePlantilla) {
 
     // Muestra el formulario de edición
     document.getElementById("edit-section").style.display = "block"; 
-    document.getElementById("selected-template").innerText = "Plantilla seleccionada: " + nombrePlantilla;
+  
 }
 
 // Función para abrir el selector de archivos
@@ -97,23 +96,27 @@ function cargarMascotasPublicadas() {
     if (mascotasGuardadas) {
         const mascotas = JSON.parse(mascotasGuardadas);
         mascotas.forEach(mascota => {
-            publicarMascota(mascota.nombre, mascota.descripcion, mascota.contacto, mascota.imagen, mascota.plantilla);
+            publicarMascota(mascota.nombre, mascota.descripcion, mascota.telefono, mascota.imagen, mascota.plantilla);
         });
     }
 }
 
- // Función para publicar la mascota (y guardarla en localStorage)
 function publishPet() {
-    const nombre = document.getElementById("pet-name").value;
-    const descripcion = document.getElementById("pet-description").value;
-    const contacto = document.getElementById("contact-info").value;
+    const nombre = document.getElementById("pet-nombre").value;
+    const descripcion = document.getElementById("pet-descripcion").value;
+    const telefono = document.getElementById("telefono").value;
     const imagen = document.getElementById("imagePreview").src;
+
+    if (!nombre || !descripcion || !telefono || !selectedTemplate) {
+        alert('Por favor, completa todos los campos y selecciona una plantilla.');
+        return;
+    }
 
     // Crear objeto para la mascota
     const mascota = {
         nombre: nombre,
         descripcion: descripcion,
-        contacto: contacto,
+        telefono: telefono,
         imagen: imagen,
         plantilla: selectedTemplate
     };
@@ -122,7 +125,7 @@ function publishPet() {
     guardarMascota(mascota);
 
     // Publicar la mascota con el estilo de la plantilla seleccionada
-    publicarMascota(nombre, descripcion, contacto, imagen, selectedTemplate);
+    publicarMascota(nombre, descripcion, telefono, imagen, selectedTemplate);
 
     // Limpiar el formulario
     document.getElementById("edit-form").reset();
@@ -137,40 +140,44 @@ function guardarMascota(mascota) {
     mascotas.push(mascota);
     localStorage.setItem("mascotasPublicadas", JSON.stringify(mascotas));
 }
-//AVISO ESTOY SIN EL LIVE, ASI Q NO VEO UN CHOTO DE LA PAGINA
 
- // Función para mostrar la mascota publicada en el DOM
-function publicarMascota(nombre, descripcion, contacto, imagen, plantilla) {
+// Cargar mascotas al iniciar la página
+function publicarMascota(nombre, descripcion, telefono, imagen, plantilla) {
     const mascotaDiv = document.createElement("div");
     mascotaDiv.classList.add("published-mascota");
-
+// Crea un elemento de imagen
+const imagenElement = document.createElement("img");
+imagenElement.src = imagen;
+imagenElement.style.maxWidth = "150px";
+imagenElement.style.display = "block";
     // Aplica el estilo de la plantilla seleccionada
     switch (plantilla) {
         case 'Plantilla 1':
             mascotaDiv.classList.add("template1");
+            imagenElement.classList.add("formaCorazon"); // Forma de corazón
             break;
         case 'Plantilla 2':
             mascotaDiv.classList.add("template2");
+            imagenElement.classList.add("formaEstrella"); // Forma de estrella
             break;
         case 'Plantilla 3':
             mascotaDiv.classList.add("template3");
+            imagenElement.classList.add("formaRedonda");
             break;
         default:
             break;
     }
-
+   
     // Establece el contenido de la mascota publicada
     mascotaDiv.innerHTML = `
-        <h3>${nombre}</h3>
-        <img src="${imagen}" alt="Imagen de la mascota" style="max-width: 150px; display: block;">
+    
+         <h3>${nombre}</h3>
         <p><strong>Descripción:</strong> ${descripcion}</p>
-        <p><strong>Contacto:</strong> ${contacto}</p>
+        <p><strong>Teléfono:</strong> ${telefono}</p>
     `;
-
+    mascotaDiv.appendChild(imagenElement);
     document.getElementById("mascotasPublicadas").appendChild(mascotaDiv); // Agrega la mascota publicada a la sección
 }
-
-// Cargar mascotas al iniciar la página
 
 // Cargar las mascotas publicadas al cargar la página
 window.onload = function() {

@@ -58,22 +58,31 @@
     
                 <div class="inputContainer">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="password" id="nombre" class="form-control" aria-describedby="passwordHelpBlock">
+                    <input type="text" id="nombre" class="form-control" aria-describedby="passwordHelpBlock">
                 
                 </div>
     
                 <div class="inputContainer">
                     <label for="precio" class="form-label">Precio</label>
-                    <input type="password" id="precio" class="form-control" aria-describedby="passwordHelpBlock">
+                    <input type="text" id="precio" class="form-control" aria-describedby="passwordHelpBlock">
                 </div>
     
                 <div class="inputContainer">
                     <label for="stock" class="form-label">Stock</label>
-                    <input type="password" id="stock" class="form-control" aria-describedby="passwordHelpBlock">
+                    <input type="text" id="stock" class="form-control" aria-describedby="passwordHelpBlock">
                 </div>
                 <br>
+                <button type="button" id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
+
+                <!-- Input de archivo oculto -->
+                <input type="file" id="fileInput" accept=".jpg" onchange="validarArchivo(this)" style="display:none;">
+                
+                <!-- Área de vista previa de la imagen -->
+                <img id="imagePreview" alt="Vista previa de la imagen" />
+                <br>
+                <br>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                    <button type="button" onclick="publishP()">Publicar Producto</button>
                 </div>
             </form>
             </div>
@@ -202,7 +211,9 @@
               </button>-->
           </div>
         <br>
+        <div class="published-section" id="published-section">
         <div id="productos"></div>
+        </div>
     </main>
 
     <!-- Este es el pie de pagina -->

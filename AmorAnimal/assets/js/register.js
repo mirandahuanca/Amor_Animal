@@ -16,7 +16,12 @@ formulario.addEventListener("submit", function(event) {
         alert("Falta completar algún campo ");
     } 
     else {
-        alert("Registro correcto!");
+        Swal.fire({
+            title: "¡Resgistro exitosamente!",
+            icon: "success",
+            timer: 5000,
+        });
+    
         formulario.reset(); // Limpia todos los campos del formulario
     }
 });

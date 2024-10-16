@@ -162,7 +162,33 @@ main{
     flex-wrap: wrap;
 }
 
+button {
+    background-color: #2cbdf2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
 
+button:hover {
+    background-color: #1aa3d0;
+}
+
+#fileInput {
+    display: none;
+}
+
+/* Estiliza el botón personalizado */
+
+
+/* Estilo para la vista previa de la imagen */
+#imagePreview {
+    margin-top: 20px;
+    max-width: 100%; /* Hace que la imagen sea responsiva */
+    display: none; /* Inicialmente oculta */
+}
 
 .carousel-item {
     /* Define un mínimo de altura para el carrusel */

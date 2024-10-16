@@ -18,7 +18,7 @@ formulario.addEventListener("submit", function(event) {
         mensajeBienvenida.style.color = "black";
     
         formulario.reset(); // Limpia todos los campos del formulario
-
+      
     } else if(usuario==="" || contraseña==="") {
        alert("Falta completar algún campo")
     }

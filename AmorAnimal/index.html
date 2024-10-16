@@ -12,15 +12,15 @@
 <body id="cuerpo">
     <script>
         const main = () => {
-          console.log("Some JavaScript Code...");
+            console.log("Some JavaScript Code...");
         };
-      
+        
         // wait for five-server to connect
         const five = document.querySelector('[data-id="five-server"]');
         if (five) five.addEventListener("connected", main);
         else window.addEventListener("load", main);
-      </script>
-      
+    </script>
+
     <!-- Este es el encabezado del sitio -->
     <header>
         <!-- fixed-top -->
@@ -73,12 +73,15 @@
             <div class="carousel-inner">
                 <div id="cartel1" class="carousel-item active">
                     <img src="https://blog.nutritienda.com/wp-content/uploads/2021/05/Fotolia_136953153_Subscription_Monthly_M-300x142.jpg" alt="">
+                    <div class="carousel-text">¡Todo lo que tu mascota necesita,está aquí en Amor Animal!</div>
                 </div>
                 <div id="cartel2" class="carousel-item">
-                    <p>Foto2</p>
+                    <img src="https://st4.depositphotos.com/16122460/20735/i/380/depositphotos_207352970-stock-photo-bowl-food-cat-dog-accessories.jpg" alt="">
+                    <div class="carousel-text">Productos de buena calidad, para tus mascotas</div>
                 </div>
                 <div id="cartel3" class="carousel-item">
-                    <p>Foto3</p>
+                 <img src="https://www.daily-choices.com/wp-content/uploads/cmg_images/431599/rid_f9ff9ecd1ad9383a897b6202557c4adb/shutterstock_1927384547-Make-Life-Easy-for-Both-of-You-Using-These-Pet-Hacks-The-child-feeds-the-dog-and-cat.jpg.pro-cmg.jpg" alt="">
+                 <div class="carousel-text">Calidad y cariño para cada miembro de la familia</div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -91,13 +94,15 @@
             </button>
             </div>
         </div>
+        
         <!-- FINAL DEL CARRUSEL -->
 
-        <div id="presentacion">
-            <div id="saludo">
+        <div id="contenedorPresentacion">
+            <div id="presentacion">
                 <h1>¡BIENVENIDO!</h1>
-                <p>Aca podras encontrar todo lo que necesitas para tu mascota</p>
+                <h3>Acá podras encontrar todo lo que necesitas para tu mascota</h3>
             </div>
+            
         </div>
 
         <div id="contacto">
@@ -125,7 +130,7 @@
                 </div>
 
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                    <button type="submit">Enviar</button>
                 </div>
             </form>
         </div>

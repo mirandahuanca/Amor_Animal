@@ -58,85 +58,86 @@ function displaymascotaPublicada() {
  let selectedTemplate; // Para almacenar la plantilla seleccionada
 
  // Función para seleccionar una plantilla y mostrar el formulario
- function seleccionarPlantilla(nombrePlantilla) {
-     selectedTemplate = nombrePlantilla; // Guardar la plantilla seleccionada
+function seleccionarPlantilla(nombrePlantilla) {
+    selectedTemplate = nombrePlantilla; // Guardar la plantilla seleccionada
 
-     // Muestra el formulario de edición
-     document.getElementById("edit-section").style.display = "block"; 
-     document.getElementById("selected-template").innerText = "Plantilla seleccionada: " + nombrePlantilla;
- }
+    // Muestra el formulario de edición
+    document.getElementById("edit-section").style.display = "block"; 
+    document.getElementById("selected-template").innerText = "Plantilla seleccionada: " + nombrePlantilla;
+}
 
- // Función para abrir el selector de archivos
- function abrirSelector() {
-     document.getElementById("fileInput").click();
- }
+// Función para abrir el selector de archivos
+function abrirSelector() {
+    document.getElementById("fileInput").click();
+}
 
  // Función para validar y mostrar la imagen seleccionada
- function validarArchivo(input) {
-     const archivo = input.files[0];
-     if (archivo) {
-         const tipoArchivo = archivo.type;
-         if (tipoArchivo !== "image/jpeg") {
-             alert("El archivo seleccionado no es de tipo .jpg");
-             input.value = ""; // Resetea el campo de archivo
-         } else {
-             const reader = new FileReader();
-             reader.onload = function(e) {
-                 const imagenVistaPrevia = document.getElementById("imagePreview");
-                 imagenVistaPrevia.src = e.target.result; // Establece la fuente de la imagen
-                 imagenVistaPrevia.style.display = "block"; // Muestra la imagen
-             }
-             reader.readAsDataURL(archivo); // Lee el archivo como URL de datos
-         }
-     }
- }
+function validarArchivo(input) {
+    const archivo = input.files[0];
+    if (archivo) {
+        const tipoArchivo = archivo.type;
+        if (tipoArchivo !== "image/jpeg") {
+            alert("El archivo seleccionado no es de tipo .jpg");
+            input.value = ""; // Resetea el campo de archivo
+        } else {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imagenVistaPrevia = document.getElementById("imagePreview");
+                imagenVistaPrevia.src = e.target.result; // Establece la fuente de la imagen
+                imagenVistaPrevia.style.display = "block"; // Muestra la imagen
+            }
+            reader.readAsDataURL(archivo); // Lee el archivo como URL de datos
+        }
+    }
+}
 
  // Función para cargar las mascotas publicadas desde localStorage
- function cargarMascotasPublicadas() {
-     const mascotasGuardadas = localStorage.getItem("mascotasPublicadas");
-     if (mascotasGuardadas) {
-         const mascotas = JSON.parse(mascotasGuardadas);
-         mascotas.forEach(mascota => {
-             publicarMascota(mascota.nombre, mascota.descripcion, mascota.contacto, mascota.imagen, mascota.plantilla);
-         });
-     }
- }
+function cargarMascotasPublicadas() {
+    const mascotasGuardadas = localStorage.getItem("mascotasPublicadas");
+    if (mascotasGuardadas) {
+        const mascotas = JSON.parse(mascotasGuardadas);
+        mascotas.forEach(mascota => {
+            publicarMascota(mascota.nombre, mascota.descripcion, mascota.contacto, mascota.imagen, mascota.plantilla);
+        });
+    }
+}
 
  // Función para publicar la mascota (y guardarla en localStorage)
- function publishPet() {
-     const nombre = document.getElementById("pet-name").value;
-     const descripcion = document.getElementById("pet-description").value;
-     const contacto = document.getElementById("contact-info").value;
-     const imagen = document.getElementById("imagePreview").src;
+function publishPet() {
+    const nombre = document.getElementById("pet-name").value;
+    const descripcion = document.getElementById("pet-description").value;
+    const contacto = document.getElementById("contact-info").value;
+    const imagen = document.getElementById("imagePreview").src;
 
-     // Crear objeto para la mascota
-     const mascota = {
-         nombre: nombre,
-         descripcion: descripcion,
-         contacto: contacto,
-         imagen: imagen,
-         plantilla: selectedTemplate
-     };
+    // Crear objeto para la mascota
+    const mascota = {
+        nombre: nombre,
+        descripcion: descripcion,
+        contacto: contacto,
+        imagen: imagen,
+        plantilla: selectedTemplate
+    };
 
-     // Guardar en localStorage
-     guardarMascota(mascota);
+    // Guardar en localStorage
+    guardarMascota(mascota);
 
-     // Publicar la mascota con el estilo de la plantilla seleccionada
-     publicarMascota(nombre, descripcion, contacto, imagen, selectedTemplate);
+    // Publicar la mascota con el estilo de la plantilla seleccionada
+    publicarMascota(nombre, descripcion, contacto, imagen, selectedTemplate);
 
-     // Limpiar el formulario
-     document.getElementById("edit-form").reset();
-     document.getElementById("imagePreview").style.display = "none"; // Oculta la imagen
-     document.getElementById("edit-section").style.display = "none"; // Oculta el formulario
- }
+    // Limpiar el formulario
+    document.getElementById("edit-form").reset();
+    document.getElementById("imagePreview").style.display = "none"; // Oculta la imagen
+    document.getElementById("edit-section").style.display = "none"; // Oculta el formulario
+}
 
  // Función para guardar la mascota en localStorage
- function guardarMascota(mascota) {
-     const mascotasGuardadas = localStorage.getItem("mascotasPublicadas");
-     let mascotas = mascotasGuardadas ? JSON.parse(mascotasGuardadas) : [];
-     mascotas.push(mascota);
-     localStorage.setItem("mascotasPublicadas", JSON.stringify(mascotas));
- }
+function guardarMascota(mascota) {
+    const mascotasGuardadas = localStorage.getItem("mascotasPublicadas");
+    let mascotas = mascotasGuardadas ? JSON.parse(mascotasGuardadas) : [];
+    mascotas.push(mascota);
+    localStorage.setItem("mascotasPublicadas", JSON.stringify(mascotas));
+}
+//AVISO ESTOY SIN EL LIVE, ASI Q NO VEO UN CHOTO DE LA PAGINA
 
  // Función para mostrar la mascota publicada en el DOM
 function publicarMascota(nombre, descripcion, contacto, imagen, plantilla) {
@@ -168,7 +169,6 @@ function publicarMascota(nombre, descripcion, contacto, imagen, plantilla) {
 
     document.getElementById("mascotasPublicadas").appendChild(mascotaDiv); // Agrega la mascota publicada a la sección
 }
-
 
 // Cargar mascotas al iniciar la página
 

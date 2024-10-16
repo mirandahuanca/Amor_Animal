@@ -122,24 +122,28 @@ main{
 }
 
 
-
-#presentacion{
-    background-color: white;
+#contenedorPresentacion{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+#presentacion{
+    background-color: white;
     padding-top: 50vw;
     padding-bottom: 50vw;
+    border: 4px solid black;
+    margin: 5vw;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
 }
-#saludo h1{
+#presentacion h1{
     color: black;
     text-align: center;
     font-size: 12vw;
     margin-bottom: 3vw;
 }
-#saludo p{
+#presentacion h3{
     color: black;
-    font-size: 4vw;
+    font-size: 5vw;
     text-align: center;
 }
 
@@ -151,26 +155,16 @@ main{
     width: 100%;
 }
 .carousel-inner{
-    height: 40vh;
+    height: 100%;
     color: white;
-}
-
-.carousel-inner h1{
-    text-align: center;
-    font-size: 70px;
-}
-
-.carousel-inner p{
-    text-align: center;
-    font-size: 30px;
 }
 
 .carousel-indicators {
     transform: scale(0.5);
 }
 sel-indicators input{
-    height: 30%;
-    width: 30%;
+    height: 20%;
+    width: 20%;
 }
 
 .carousel-item{
@@ -178,19 +172,32 @@ sel-indicators input{
 }
 
 #cartel1 img{
-    
-    color: white;
-  height: 30vw;
-  width: 80vw;
+    height: 60vw;
+    width: 100vw;
 }
-#cartel2{
-    background-color: black;
-    height: 100%;
+#cartel2 img{
+    height: 60vw;
+    width: 100vw;
 }
-#cartel3{
-    background-color: black;
-    height: 100%;
+#cartel3 img{
+    height: 60vw;
+    width: 100vw;
 }
+
+.carousel-text {
+    position: absolute;
+    top: 10%;  /* Ajusta según la posición que desees */
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(0, 0, 0);
+    font-size: 5.5vw;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(158, 158, 158, 0.5);  /* Fondo semitransparente */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
 
 /*CONTACTO*/
 
@@ -210,6 +217,13 @@ sel-indicators input{
     margin-bottom: 10vw;
 }
 
+.col-auto button{
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+    padding: 2vw 5vw;
+    border: white;
+}
 
 /*PIE DE PÁGINA*/
 footer{

@@ -16,9 +16,12 @@ formulario.addEventListener("submit", function(event) {
     // Validar si el usuario y contraseña son correctos
     if (usuario === adminUsername && contra === adminPassword) {
         mensajeBienvenida.textContent = "Bienvenido, Admin!";
-        mensajeBienvenida.style.color = "green";
+        mensajeBienvenida.style.color = "black";
     } else {
-        mensajeBienvenida.textContent = "Usuario o contraseña incorrectos.";
-        mensajeBienvenida.style.color = "red";
+       alert("Usuario o contraseña son incorrectos")
     }
+});
+
+botonLimpiar.addEventListener("click", function() {
+    formulario.reset(); // Limpia todos los campos del formulario
 });

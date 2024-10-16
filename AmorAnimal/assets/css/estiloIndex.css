@@ -160,11 +160,18 @@ main{
 }
 
 .carousel-indicators {
-    transform: scale(0.5);
+    transform: scale(0.5);    
 }
+/*color de las flecha del carrusel*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+}
+
 sel-indicators input{
     height: 20%;
     width: 20%;
+    
 }
 
 .carousel-item{
@@ -224,6 +231,14 @@ sel-indicators input{
     padding: 2vw 5vw;
     border: white;
 }
+
+#contacto input:focus, 
+#contacto textarea:focus {
+    outline: none;
+    border: 2px solid rgb(0, 0, 0); /* Cambia el color del borde */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Añade una sombra suave */
+}
+
 
 /*PIE DE PÁGINA*/
 footer{

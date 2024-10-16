@@ -33,21 +33,6 @@ nav.navbar {
     font-weight: bold;
     color: rgb(190, 8, 8);
 }
-
-.login-button {
-    background-color: rgb(190, 8, 8);
-    color: white;
-    font-size: 4vw;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-    
-.login-button:hover {
-    background-color: #6f15e4;
-    box-shadow: 0 0 8px rgb(178, 72, 216);
-}
     
 #botonAbrirMenu{
     border: none;
@@ -91,9 +76,6 @@ main{
     display: grid;
     grid-template-rows: auto;
 }
-
-
-
 
 
 /* FORMULARIO */
@@ -175,12 +157,6 @@ form {
     margin-bottom: 3vw;
 }
 
-.submitBtn:hover {
-    background-color: #7bdbec;
-    transform: translateY(-2px);
-    text-align: center;
-}
-
 .registrar {
     text-align: center;
     margin-top: 1vw;
@@ -193,11 +169,11 @@ form {
     z-index: 10;
     font-size: 14px;
     font-weight: 600;
-    color: #7b82ff;
+    color: black;
 }
 
 .input:focus {
-    border: 2px solid #7b82ff;
+    border: 2px solid rgb(202, 33, 33);
 }
 
 .input:not(:placeholder-shown) + .label {
@@ -208,7 +184,25 @@ form {
     font-weight: 600;
 }
 
+/* TEXTO NUEVO CLIENTE */
+#textoNuevoCliente{
+    background-color: #a22c2c;
+    color: white;
+    padding: 12vw 5vw;
+}
+#textoNuevoCliente h5{
+    border-bottom: solid white;
+    background-color: #d0d1d9b0;
+    padding: 1vw;
+    margin-bottom: 6vw;
+}
+#textoNuevoCliente p{
+    margin: 0;
+}
 
+
+
+/*INGRESO DE ADMINISTRADOR*/
 /* BOTON CERRAR SESION */
 .submitBtnCerrar {
     background-color: #000000;
@@ -228,7 +222,6 @@ form {
     display: none;
 }
 
-
 #saludoAdmi{
     display: none;
 }
@@ -240,21 +233,6 @@ form {
     margin-top: 3vw;
 }
 
-/* TEXTO NUEVO CLIENTE */
-#textoNuevoCliente{
-    background-color: #a22c2c;
-    color: white;
-    padding: 12vw 5vw;
-}
-#textoNuevoCliente h5{
-    border-bottom: solid white;
-    background-color: #d0d1d9b0;
-    padding: 1vw;
-    margin-bottom: 6vw;
-}
-#textoNuevoCliente p{
-    margin: 0;
-}
 
 /*PIE DE PÁGINA*/
 footer{

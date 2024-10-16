@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Tienda</title>
-    <link rel="stylesheet" href=".//assets/css/estiloTienda.css" type="text/css">
+    <link rel="stylesheet" href="../css/estiloTienda.css" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
@@ -15,8 +15,8 @@
         <!-- fixed-top -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <img src="assets/img/imagen.png" alt="">
-                <a id="navNombre" class="navbar-brand" href="#encabezado">AMOR ANIMAL</a>
+              
+                <a id="navNombre" class="navbar-brand" href="/index.html">AMOR ANIMAL</a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas NavbarLabel">
                     <div class="offcanvas-header">
                         <h3>Menú</h3>
@@ -25,22 +25,22 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center pe-3">
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" aria-current="page" href="index.html">Inicio</a>
+                                <a class="nav-link mx-lg-2" aria-current="page" href="/index.html">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="./assets/pages/tienda.html">Tienda</a>
+                                <a class="nav-link mx-lg-2" href="./tienda.html">Tienda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="./assets/pages/mascotasPerdidas.html">Mascotas Perdidas</a>
+                                <a class="nav-link mx-lg-2" href="./mascotasPerdidas.html">Mascotas Perdidas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="index.html#contacto">Contacto</a>
+                                <a class="nav-link mx-lg-2" href="/index.html#contacto">Contacto</a>
                             </li>
                         
                         </ul>
                     </div> 
                 </div>
-                <a href="./assets/pages/login.html" id="botonLogin" class="login-button">Iniciar sesión</a>
+                <a href="./login.html" id="botonLogin" class="login-button">Iniciar sesión</a>
                 <button type="submit" id="botonCerrarSesion" class="submitBtnCerrar">Cerrar Sesión</button>
                 <button id="botonAbrirMenu" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -51,42 +51,158 @@
 
     <!-- Esta es la parte principal del sitio -->
     <main>
-        <div class="signupFrm">
+
+        <div class="formProductoNuevo">
             <form id="formulario">
-                <h1 class="title">Agregue un nuevo producto</h1>
-            
+                <h1 class="title">Agregue nuevo producto</h1>
+    
                 <div class="inputContainer">
-                <input type="text" class="input" id="nombre" placeholder="a">
-                <label class="label">Nombre</label>
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="password" id="nombre" class="form-control" aria-describedby="passwordHelpBlock">
+                
                 </div>
-            
+    
                 <div class="inputContainer">
-                <input type="text" class="input" id="precio" placeholder="a">
-                <label class="label">Precio</label>
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="password" id="precio" class="form-control" aria-describedby="passwordHelpBlock">
                 </div>
-            
+    
                 <div class="inputContainer">
-                <input type="text" class="input" id="stock" placeholder="a">
-                <label class="label">Stock</label>
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="password" id="stock" class="form-control" aria-describedby="passwordHelpBlock">
                 </div>
-            
-                <input type="submit" class="submitBtn" id="boton" value="Enviar producto">
+                <br>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                </div>
             </form>
-        </div>
+            </div>
+
         
         <div class="container-titulo">
             <br>
             <h1 class="titulo-tienda">PRODUCTOS</h1>
-        </div>
-    
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                      <div class="row g-4">
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto1.jpg" class="card-img-top img-fluid" alt="Producto 1">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 1</h5>
+                                      <p class="card-text">Descripción del producto 1. Este es un excelente producto.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto2.jpg" class="card-img-top img-fluid" alt="Producto 2">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 2</h5>
+                                      <p class="card-text">Descripción del producto 2. Este producto es muy popular.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto3.jpg" class="card-img-top img-fluid" alt="Producto 3">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 3</h5>
+                                      <p class="card-text">Descripción del producto 3. Este producto tiene excelentes reseñas.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                      <div class="row g-4">
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto4.jpg" class="card-img-top img-fluid" alt="Producto 4">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 4</h5>
+                                      <p class="card-text">Descripción del producto 4. Este es otro gran producto.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto5.jpg" class="card-img-top img-fluid" alt="Producto 5">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 5</h5>
+                                      <p class="card-text">Descripción del producto 5. Muy recomendable.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto6.jpg" class="card-img-top img-fluid" alt="Producto 6">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 6</h5>
+                                      <p class="card-text">Descripción del producto 6. ¡Te encantará!</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="row g-4">
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto7.jpg" class="card-img-top img-fluid" alt="Producto 7">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 7</h5>
+                                      <p class="card-text">Descripción del producto 7. Ideal para ti.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto8.jpg" class="card-img-top img-fluid" alt="Producto 8">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 8</h5>
+                                      <p class="card-text">Descripción del producto 8. Un must-have.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-12 col-sm-6 col-md-4">
+                              <div class="card">
+                                  <img src="producto9.jpg" class="card-img-top img-fluid" alt="Producto 9">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Producto 9</h5>
+                                      <p class="card-text">Descripción del producto 9. Un gran producto.</p>
+                                      <button class="btn btn-primary">Añadir al carrito</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+           <!----  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>-->
+          </div>
         <br>
         <div id="productos"></div>
-
-
-
-
-
-        <div id="separador"><hr class="d-md-none text-white-50"></div>
     </main>
 
     <!-- Este es el pie de pagina -->

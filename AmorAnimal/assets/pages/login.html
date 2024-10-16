@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/estiloLogin.css" type="text/css">
+    <link rel="stylesheet" href="../css/estiloLogin.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Inicio de sesion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -15,8 +15,7 @@
         <!-- fixed-top -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <img src="assets/img/imagen.png" alt="">
-                <a id="navNombre" class="navbar-brand" href="#encabezado">AMOR ANIMAL</a>
+                <a id="navNombre" class="navbar-brand" href="/index.html">AMOR ANIMAL</a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas NavbarLabel">
                     <div class="offcanvas-header">
                         <h3>Menú</h3>
@@ -25,23 +24,21 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center pe-3">
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" aria-current="page" href="index.html">Inicio</a>
+                                <a class="nav-link mx-lg-2" aria-current="page" href="/index.html">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="./assets/pages/tienda.html">Tienda</a>
+                                <a class="nav-link mx-lg-2" href="./tienda.html">Tienda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="./assets/pages/mascotasPerdidas.html">Mascotas Perdidas</a>
+                                <a class="nav-link mx-lg-2" href="./mascotasPerdidas.html">Mascotas Perdidas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="index.html#contacto">Contacto</a>
+                                <a class="nav-link mx-lg-2" href="/index.html#contacto">Contacto</a>
                             </li>
                         
                         </ul>
                     </div> 
                 </div>
-                <a href="./assets/pages/login.html" id="botonLogin" class="login-button">Iniciar sesión</a>
-                <button type="submit" id="botonCerrarSesion" class="submitBtnCerrar">Cerrar Sesión</button>
                 <button id="botonAbrirMenu" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,28 +48,34 @@
     
     <main>
         <div class="signupFrm">
-        <form id="formulario">
-            <h1 class="title">Inicia sesión</h1>
+            <form id="formulario">
+                <h1 class="title">Inicia Sesión</h1>
 
-            <div class="inputContainer">
-                <input type="text" class="input" id="usuario" placeholder="a">
-                <label class="label">Usuario</label>
-            </div>
+                <div class="inputContainer">
+                    <input type="text" class="input" id="usuario" placeholder="a" autocomplete="off">
+                    <label class="label">Usuario</label>
+                </div>
 
-            <div class="inputContainer">
-                <input type="text" class="input" id="contra" placeholder="a">
-                <label class="label">Contraseña</label>
-            </div>
+                <div class="inputContainer">
+                    <input type="text" class="input" id="contra" placeholder="a" autocomplete="off">
+                    <label class="label">Contraseña</label>
+                </div>
 
-            <!-- <input type="submit" id="botonAcceso" class="submitBtn" value="Acceso"> -->
-            <div class="contenedorBotones">
-                <button type="submit" class="submitBtn" id="botonAcceso" value="Acceso">Acceso</button>
-            </div>
-            <div class="registrar">
-                <p>¿No tienes cuenta?  <a href="../pages/register.html">Registrarse</a></p>
-            </div>
+                <!-- <input type="submit" id="botonAcceso" class="submitBtn" value="Acceso"> -->
+                <div class="contenedorBotones">
+                    <button type="submit" class="submitBtn" id="botonAcceso" value="Acceso">Ingresar</button>
+                </div>
+                <div class="registrar">
+                    <p>¿No tienes cuenta?  <a href="../pages/register.html">Registrarse</a></p>
+                </div>
+            </form>
+        </div>
 
-        </form>
+        <div id="textoNuevoCliente">
+            <h5>NUEVOS CLIENTES</h5>
+            <p>Crear una cuenta tiene muchos beneficios: descuento en productos, 
+                venta de objetos que tu mascota ya no utilice, seguimiento de pedidos y mucho más.
+            </p>
         </div>
 
 
@@ -81,8 +84,6 @@
         <div id="saludoAdmi">
             <h1>¡Hola, Jefe de ventas!</h1>
         </div>
-
-        <div id="separador"><hr class="d-md-none text-white-50"></div>
     </main>
 
     <!-- Este es el pie de pagina -->

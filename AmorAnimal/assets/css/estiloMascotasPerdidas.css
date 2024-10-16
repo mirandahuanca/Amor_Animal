@@ -20,11 +20,10 @@ nav{
     z-index: 1000;
     transition: 0.3s;
 }
-
-/*nav:hover {
+nav:hover{
     background-color: rgb(255, 140, 140);
     transition: 0.3s;
-}*/
+}
 
 #navNombre{
     font-size: 4vw;
@@ -142,7 +141,27 @@ main{
     font-size: 4vw;
     text-align: center;
 }
+#presentacion a{
+    background-color: #fddc20;
+    color: black;
+    border-radius: 15px;
+    padding: 0.5vw 5vw 0.5vw 5vw;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgb(216, 127, 72);
+    transition: 1s;
+}
+#presentacion a:hover{
+    box-shadow: 0 0 5px rgb(216, 127, 72);
+}
 
+#informacion{
+    background-color: #f7eba6;
+    border: solid;
+    height: 25vw;
+    margin-bottom: 15vw;
+    text-align: center;
+    padding: 5vw 20vw;
+}
 
 /* CARRUSEL */
 
@@ -151,7 +170,7 @@ main{
     width: 100%;
 }
 .carousel-inner{
-    height: 40vh;
+    height: 60vh;
     color: white;
 }
 
@@ -166,48 +185,35 @@ main{
 }
 
 .carousel-indicators {
-    transform: scale(0.5);
+    transform: scale(1);
 }
 sel-indicators input{
-    height: 30%;
-    width: 30%;
+    height: 80%;
+    width: 80%;
 }
+/* NOTA: Esto altera la pagina creando una barra de desplazamiento en la parte inferior del sitio web */
+
+
 
 .carousel-item{
     height: 60vw;
 }
 
-#cartel1 img{
-    
+#cartel1{
+    background-color: black;
     color: white;
-  height: 30vw;
-  width: 80vw;
 }
 #cartel2{
     background-color: black;
-    height: 100%;
 }
 #cartel3{
     background-color: black;
-    height: 100%;
 }
 
-/*CONTACTO*/
-
-#contacto{
-    background-color: rgb(202, 33, 33);
-    color: white;
-    justify-content: space-between; 
-    align-items: center;
-    max-width: 100%; 
-    padding: 9vw;
-}
-
-#contacto h2{
-    text-align: center;
-    border-bottom: solid;
-    padding-bottom: 3vw;
-    margin-bottom: 10vw;
+#separador{
+    background-color: white;
+    border-bottom: solid black;
+    height: 10vw;
 }
 
 
@@ -362,10 +368,6 @@ footer p{
 }
 /*--- FORMATO LAPTOP ---*/
 @media screen and (min-width: 1024PX){
-    nav:hover{
-        background-color: rgb(255, 140, 140);
-        transition: 0.3s;
-    }
     /*ENCABEZADO*/
     #contenedorImagenLogo img{
         height: 10vw;

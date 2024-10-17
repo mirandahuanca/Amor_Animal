@@ -4,29 +4,36 @@ document.addEventListener("DOMContentLoaded", function() {
     const dni = localStorage.getItem("dni");
     const direccion = localStorage.getItem("direccion");
     const email = localStorage.getItem("email");
-    const contraseña = localStorage.getItem("contraseña");
-
+  const botonCerrarSesion = document.getElementById("botonCerrarSesion");
     // Mostrar los datos en la página
     document.getElementById("mostrarNombre").textContent = nombre;
     document.getElementById("mostrarApellido").textContent = apellido;
     document.getElementById("mostrarDNI").textContent = dni;
     document.getElementById("mostrarDireccion").textContent = direccion;
     document.getElementById("mostrarEmail").textContent = email;
-    document.getElementById("mostrarContraseña").textContent = contraseña;
+    botonCerrarSesion.style.display = "inline-block";
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdown = document.querySelector(".dropdown");
-    const content = document.querySelector(".dropdown-content");
+// Manejar múltiples dropdowns
+document.querySelectorAll(".dropdown").forEach(dropdown => {
+    const content = dropdown.querySelector(".dropdown-content");
 
-    dropdown.addEventListener("click", function() {
+    dropdown.addEventListener("click", function(event) {
+        event.stopPropagation(); // Evitar que el clic se propague
         content.style.display = content.style.display === "block" ? "none" : "block";
     });
+});
 
-    // Cierra el contenido si se hace clic fuera de él
-    window.addEventListener("click", function(event) {
-        if (!dropdown.contains(event.target)) {
-            content.style.display = "none";
-        }
+// Cerrar dropdowns si se hace clic fuera de ellos
+window.addEventListener("click", function() {
+    document.querySelectorAll(".dropdown-content").forEach(content => {
+        content.style.display = "none";
     });
+});
+
+botonCerrarSesion.addEventListener("click", function() {
+    // Restablecer valores al cerrar sesión
+    localStorage.removeItem("loggedInUser");
+  
+    botonCerrarSesion.style.display = "none";
 });

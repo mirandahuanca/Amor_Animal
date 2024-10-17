@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         nombreUser.textContent = `Hola, ${loggedInUser}`;
         nombreUser.classList.add("login-link");
         nombreUser.href = "./assets/pages/usuario.html"; // Eliminar el enlace de 'Iniciar sesión'
-        botonCerrarSesion.style.display = "inline-block"; // Mostrar botón de cerrar sesión
+      //  botonCerrarSesion.style.display = "inline-block"; // Mostrar botón de cerrar sesión
     } else {
         // Mantener el botón de 'Iniciar sesión' si no hay usuario logueado
         nombreUser.textContent = "Iniciar sesión";

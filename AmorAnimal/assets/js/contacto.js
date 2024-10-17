@@ -21,10 +21,19 @@ formulario.addEventListener("submit", function(event) {
             title: "Mensaje recibido",
             icon: "success",
             timer: 5000,
+            
         });
-    
-        formulario.reset(); // Limpia todos los campos del formulario
+        limpiarCampos(); 
+   
+      // Limpia todos los campos del formulario
     }
 });
 
+function limpiarCampos() {
+    document.getElementById("nombre").value = "";  
+    document.getElementById("telefono").value = ""; 
+    document.getElementById("email").value = ""; 
+    document.getElementById("mensaje").value = ""; 
+
+}
  

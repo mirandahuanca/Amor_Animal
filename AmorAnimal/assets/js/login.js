@@ -7,7 +7,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     // Datos de ejemplo para validar el login
     const adminUsuario = "admin";
     const adminContraseña = "1234";
-    const user = "user1";
+    const emailuser = "user1";
     const contraseñaUser = "2024";
 
     if (email === adminUsuario && contraseña === adminContraseña) {
@@ -15,7 +15,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
         limpiarCampos(); 
    
    
-    } else if (email === user && contraseña === contraseñaUser) {
+    } else if (email === emailuser && contraseña === contraseñaUser) {
         localStorage.setItem("loggedInUser", "User1");
         limpiarCampos(); 
    

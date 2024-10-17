@@ -71,7 +71,21 @@ nav.navbar {
     display: none;
 }
 
+.loggedIn {
+    text-decoration: none; 
+    color: black;           
+    font-weight: bold;
+    cursor:pointer;
+}
+.login-link {
+    color: black; /* Cambiar el color a negro */
+    text-decoration: none; /* Eliminar el subrayado */
+    margin-right: 10px; /* Añadir espaciado a la derecha */
+}
 
+.submitBtnCerrar {
+    display: inline-block; /* Mostrar el botón de cerrar sesión */
+}
 
 /*MAIN*/
 main{

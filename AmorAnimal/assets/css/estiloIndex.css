@@ -260,15 +260,90 @@ sel-indicators input{
 }
 
 .contenedor-carrito{
+    display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0; left: 0;
     min-height: 100vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.163);
+    background-color: rgba(0, 0, 0, 0.395);
+}
+
+#carrito{
+    width: 85%;
+    height: 70vh;
+    background-color: white;
+}
+.contenedor-carrito #productosAgregadosAlCarrito{
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: scroll;
+    height: 52vh;
+    margin: 0;
+    padding: 4vw;
 }
+::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+}
+
+#carritoParteSuperior{
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    align-items: center; /* Alinea verticalmente los elementos */
+    padding: 2vw 4vw;
+    background-color: black;
+}
+
+#carritoParteSuperior i{
+    color: white;
+    font-size: 6vw;
+    padding: 0;
+}
+
+#carritoParteSuperior h2{
+    font-size: 6.5vw;
+    font-weight: bold;
+    color: rgb(236, 236, 236);
+    width: 35vw;
+    margin: 0;
+}
+
+#productosAgregadosAlCarrito p{
+    text-align: center;
+}
+
+#carrito h3{
+    font-size: 4.5vw;
+    font-weight: bold;
+    padding: 2vw 4vw;
+}
+
+#botonesCarrito{
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin: 1vw 3vw;
+}
+.carrito-button {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-size: 4vw;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
 
 
 /*PIE DE PÁGINA*/

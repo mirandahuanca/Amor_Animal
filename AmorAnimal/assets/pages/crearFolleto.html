@@ -14,7 +14,7 @@
     <!-- Este es el encabezado del sitio -->
     <header>
         <!-- fixed-top -->
-        <nav class="navbar navbar-expand-lg">
+        <nav id="navegador" class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a id="navNombre" class="navbar-brand" href="/index.html">AMOR ANIMAL</a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas NavbarLabel">
@@ -55,20 +55,23 @@
 
             <div class="templates">
                 <!-- Folleto 1 -->
-                <div class="template1" onclick="selectTemplate('template1')">
+                <div class="template template1" onclick="selectTemplate('template1')">
                     <div class="template-body">
                         <img src="https://via.placeholder.com/150" alt="Mascota" class="formaCorazon" class="template-img">
                         <h3>Nombre: Fido</h3>
                         <p>Descripción: Perro marrón, 3 años, amigable.</p>
                         <p>Teléfono: 123-456-789</p>
+                        <button onclick="seleccionarPlantilla('Plantilla 1')">Seleccionar</button>
+                        <!--
                         <div id="botonLoEncontre">
                             <p>Lo encontre</p>
                         </div>
+                        -->
                     </div>
                 </div>
 
                 <!-- Folleto 2 -->
-                <div class="template2" onclick="selectTemplate('template2')">
+                <div class="template template2" onclick="selectTemplate('template2')">
                     <div class="template-body">
                         <img src="https://via.placeholder.com/150" alt="Mascota" class="formaEstrella" class="template-img">
                         <h3>Nombre: Luna</h3>
@@ -79,7 +82,7 @@
                 </div>
 
                 <!-- Folleto 3 -->
-                <div class="template3" onclick="selectTemplate('template3')">
+                <div class="template template3" onclick="selectTemplate('template3')">
                     <div class="template-body">
                         <img src="https://via.placeholder.com/150" alt="Mascota" class="formaRedonda" class="template-img">
                         <h3>Nombre: Max</h3>
@@ -94,40 +97,35 @@
             
 
 
-    <div class="edit-section" id="edit-section">
-       
-        <form id="edit-form" onsubmit="return false;"> <!-- Previene la recarga de la página -->
-            <label for="pet-name">Nombre de la Mascota:</label>
-            <input type="text" id="pet-nombre" placeholder="Ej: Fido">
-            
-            <label for="pet-description">Descripción:</label>
-            <textarea id="pet-descripcion" rows="3" placeholder="Ej: Perro marrón, amigable"></textarea>
-            
-            <label for="contact-info">Contacto:</label>
-            <input type="text" id="telefono" placeholder="Ej: 123-456-789">
+        <div class="edit-section" id="edit-section">
+            <form id="edit-form" onsubmit="return false;"> <!-- Previene la recarga de la página -->
+                <label for="pet-name">Nombre de la Mascota:</label>
+                <input type="text" id="pet-nombre" placeholder="Ej: Fido">
+                
+                <label for="pet-description">Descripción:</label>
+                <textarea id="pet-descripcion" rows="3" placeholder="Ej: Perro marrón, amigable"></textarea>
+                
+                <label for="contact-info">Contacto:</label>
+                <input type="text" id="telefono" placeholder="Ej: 123-456-789">
 
-            <button type="button" id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
-            <br>
-            <br>
-            <!-- Input de archivo oculto -->
-            <input type="file" id="fileInput" accept=".jpg" onchange="validarArchivo(this)" style="display:none;">
-            
-            <!-- Área de vista previa de la imagen -->
-            <img id="imagePreview" alt="Vista previa de la imagen" />
-            
-            <button type="button" onclick="publishPet()"  style="background-color: blue;">Publicar Mascota</button>
-        </form>
-
-            
+                <button type="button" id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
+                <br>
+                <br>
+                <!-- Input de archivo oculto -->
+                <input type="file" id="fileInput" accept=".jpg" onchange="validarArchivo(this)" style="display:none;">
+                
+                <!-- Área de vista previa de la imagen -->
+                <img id="imagePreview" alt="Vista previa de la imagen" />
+                
+                <button type="button" onclick="publishPet()"  style="background-color: black;">Publicar Mascota</button>
+            </form>
         </div>
-        
-        
     </main>
     <br>
-   
+
    <!---- <button id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
 
-   
+
     <input type="file" id="fileInput" accept=".jpg" onchange="validarArchivo(this)">
 
    

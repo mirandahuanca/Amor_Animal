@@ -5,20 +5,29 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     const contraseña = document.getElementById("contraseña").value;
 
     // Datos de ejemplo para validar el login
-    const adminUsuario = "admin";
+    const adminEmail= "admin1@gmail.com";
     const adminContraseña = "1234";
-    const emailuser = "user1";
-    const contraseñaUser = "2024";
+    const userEmail = "user1@gmail.com";
+    const userContraseña = "2024";
 
-    if (email === adminUsuario && contraseña === adminContraseña) {
+    
+    if (email === adminEmail && contraseña === adminContraseña) {
         localStorage.setItem("loggedInUser", "Admin");
         limpiarCampos(); 
+        Swal.fire({
+            title: "¡Bienvenido Administrador!",
+            icon: "success",
+            timer: 5000,
+        });
    
-   
-    } else if (email === emailuser && contraseña === contraseñaUser) {
+    } else if (email === userEmail && contraseña === userContraseña) {
         localStorage.setItem("loggedInUser", "User1");
         limpiarCampos(); 
-   
+        Swal.fire({
+            title: "¡Ha iniciado sesion!",
+            icon: "success",
+            timer: 5000,
+        });
     } else {
         alert("Email o contraseña incorrectos");
     }

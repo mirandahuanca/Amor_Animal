@@ -84,40 +84,6 @@ main{
     grid-template-rows: auto;
 }
 
-.mensaje_mascota{
-    background-color: rgba(255, 255, 255, 0.658);
-}
-
-.mensaje_mascota h2{
-    margin-top: 5vw;
-    margin-left: 5vw;
-    font-weight: bold;
-}
-
-.mensaje_mascota h3{
-    margin-top: 1vw;
-    margin-left: 5vw;
-    margin-bottom: 2vw;
-    font-weight: bold;
-}
-
-.crearFolleto-button {
-    background-color: rgb(190, 8, 8);
-    color: white;
-    font-size: large;
-    padding: 8px 20px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-left: 5vw;
-    margin-bottom: 5vw;
-}
-    
-.crearFolleto-button:hover {
-    background-color: black;
-    box-shadow: 0 0 8px black;
-}
-
-
 #contenedorPresentacion{
     display: flex;
     flex-direction: column;
@@ -174,18 +140,11 @@ sel-indicators input{
     height: 60vw;
 }
 
-#cartel1 img{
-    height: 60vw;
-    width: 100vw;
+.carousel-inner img{
+    height: 50vw;
+    width: 100%;
 }
-#cartel2 img{
-    height: 60vw;
-    width: 100vw;
-}
-#cartel3 img{
-    height: 60vw;
-    width: 100vw;
-}
+
 
 .carousel-text {
     position: absolute;
@@ -489,7 +448,6 @@ footer p{
         margin: 0;
     }
 }
-
 /*--- FORMATO LAPTOP ---*/
 @media screen and (min-width: 1024PX){
     nav:hover{
@@ -643,8 +601,9 @@ footer p{
         padding: 0;
         background-color: white;
         font-family: "Nunito", sans-serif;
-        padding-top: 6vw;
+        padding-top: 5vw;
     }
+
 
     /*ENCABEZADO*/
     /* Encabezado (nav) */
@@ -652,19 +611,15 @@ footer p{
         position: fixed;
         top: 0;
         width: 100%;
-        height: 6vw; /* Puedes ajustar el tamaño según la vista */
+        height: 5vw; /* Puedes ajustar el tamaño según la vista */
         z-index: 1000; /* Asegúrate de que tenga un valor alto para que esté encima del contenido */
         background-color: white; /* Asegúrate de que tenga un fondo visible */
         box-shadow: 0 0 18px rgba(202, 33, 33, 0.5);
-    }
-
-    #navegador:hover{
-        background-color: rgb(255, 140, 140);
-        transition: 0.3s;
+        
     }
 
     #navNombre{
-        font-size: 1.6vw;
+        font-size: 2vw;
         font-weight: bold;
         color: rgb(190, 8, 8);
     }
@@ -679,16 +634,9 @@ footer p{
         transition: 0.3s;
     }
 
-    .offcanvas-body a{
-        padding: 0;
-        color: black;
-        font-size: large;
-    }
-
-    .offcanvas-body a:hover{
-        padding: 0;
-        color: black;
-        font-size: large;
+    #navegador:hover{
+        background-color: rgb(255, 251, 251);
+        transition: 0.3s;
     }
 
     .nav-link::before{
@@ -698,34 +646,187 @@ footer p{
         left: 50%;
         transform: translateX(-50%);
         width: 0;
-        height: 2px;
+        height: 1.8vw;
         visibility: hidden;
         transition: 0.3s ease-in-out;
-        border-bottom: 0.3VW solid black;
+        border-top: 0.1VW solid black;
+        border-bottom: 0.1VW solid black;
     }
 
     .nav-link:hover::before, .nav-link.active::before{
         width: 100%;
         visibility: visible;
     }
-
-    /*MAIN*/
-    #presentacion{
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 8vw;
-        padding-bottom: 30vw;
-        height: 15vw;
-    }
-
+    
+    
     /* CARRUSEL */
     .carousel-inner{
         height: 35vw;
     }
     .carousel-item{
         height: 35vw;
+    }
+    .carousel-text {
+        position: absolute;
+        transform: translateX(-50%);
+        color: rgb(0, 0, 0);
+        font-size: 2.5vw;
+        font-weight: bold;
+        text-align: center;
+        background-color: rgba(231, 225, 225, 0.5);  /* Fondo semitransparente */
+        padding: 10vw 20vw;
+        width: 100%;
+        height: 28vw;
+    }
+
+
+    /*MAIN*/
+    #presentacion{
+        background-color: white;
+        padding: 5vw 10vw 15vw 10vw;
+        border: 4px solid black;
+        margin: 2vw;
+        box-shadow: 0 0 15px rgb(0, 0, 0);
+    }
+    #presentacion h1{
+        color: black;
+        text-align: center;
+        font-size: 4vw;
+        margin-bottom: 3vw;
+    }
+    #presentacion h3{
+        color: black;
+        font-size: 1.5vw;
+        text-align: center;
+    }
+
+    /*CONTACTO*/
+    #contacto{
+        background-color: rgb(202, 33, 33);
+        color: white;
+        justify-content: space-between; 
+        align-items: center;
+        max-width: 100%; 
+        padding: 8vw 20vw 8vw 20vw;
+        height: 55vw;
+    }
+    
+    #contacto h2{
+        text-align: center;
+        border-bottom: solid;
+        padding-bottom: 1.5vw;
+        margin-bottom: 2.5vw;
+    }
+    
+    .col-auto button{
+        background-color: white;
+        color: black;
+        border-radius: 6px;
+        padding: 0.5vw 1.5vw;
+        border: white;
+    }
+
+
+    /* CARRITO */
+    .icono-carrito a{
+        position: fixed;
+        width: 70px; 
+        height: 70px;
+        bottom: 4vw; 
+        right: 4vw;
+        line-height: 76px;
+        background-color: black;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+        color: white;
+        font-size: 35px;
+        z-index: 1000;
+    }
+
+    .contenedor-carrito{
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0; left: 0;
+        min-height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.395);
+    }
+
+    #carrito{
+        width: 25%;
+        height: 80vh;
+        background-color: white;
+    }
+    .contenedor-carrito #productosAgregadosAlCarrito{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: scroll;
+        height: 55vh;
+        margin: 0;
+        padding: 4vw;
+    }
+    ::-webkit-scrollbar{
+        -webkit-appearance: none;
+    }
+
+    ::-webkit-scrollbar:vertical {
+        width: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #797979;
+        border-radius: 20px;
+    }
+
+    #carritoParteSuperior{
+        display: flex;
+        justify-content: space-between; /* Distribuye los elementos a los extremos */
+        align-items: center; /* Alinea verticalmente los elementos */
+        padding: 1vw 1vw;
+        background-color: black;
+    }
+
+    #carritoParteSuperior i{
+        color: white;
+        font-size: 1vw;
+        padding: 0;
+    }
+
+    #carritoParteSuperior h2{
+        font-size: 1.5vw;
+        font-weight: bold;
+        color: rgb(236, 236, 236);
+        width: 35vw;
+        margin: 0;
+    }
+
+    #productosAgregadosAlCarrito p{
+        text-align: center;
+    }
+
+    #carrito h3{
+        font-size: 1.5vw;
+        font-weight: bold;
+        padding: 1vw 2vw;
+    }
+
+    #botonesCarrito{
+        display: flex;
+        justify-content: space-between; /* Distribuye los elementos a los extremos */
+        align-items: center; /* Alinea verticalmente los elementos */
+        margin: 0vw 2vw;
+    }
+    .carrito-button {
+        background-color: black;
+        color: rgb(255, 255, 255);
+        font-size: 1vw;
+        padding: 8px 20px;
+        text-decoration: none;
+        transition: 0.3s;
     }
 
 

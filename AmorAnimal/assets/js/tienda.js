@@ -1,5 +1,3 @@
-
-
 function abrirSelector() {
     document.getElementById("fileInput").click();
 }
@@ -38,7 +36,17 @@ function CargarProductosPublicados() {
 
 
  // Función para publicar la mascota (y guardarla en localStorage)
-function publishP() {
+ function publishP() {
+    if (!verificarLogin()) {
+        Swal.fire({
+            icon: "error",
+            title: "Usted no ha iniciado sesión",
+            text: "¿No tiene cuenta?",
+            footer: '<a href="register.html">Registrate Aquí</a>'
+          });
+        return;
+    }
+
     const nombre = document.getElementById('nombre').value;
     const precio = document.getElementById('precio').value;
     const stock = document.getElementById('stock').value;
@@ -104,3 +112,34 @@ window.onload = function() {
 };
 
 window.onload = CargarProductosPublicados;
+function verificarLogin() {
+    const usuarioLogueado = localStorage.getItem("loggedInUser");
+    return usuarioLogueado !== null;
+}
+
+window.onload = function() {
+    if (!verificarLogin()) {
+        // Deshabilitar botón de crear folleto
+        const crearFolletoButton = document.querySelector('.crearFolleto-button');
+        crearFolletoButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar el enlace
+            Swal.fire({
+                icon: "error",
+                title: "Usted no ha iniciado sesión",
+                text: "¿No tiene cuenta?",
+                footer: '<a href="register.html">Registrate Aquí</a>'
+              });
+        });
+
+        // Deshabilitar botón de publicar producto
+        const publicarButton = document.querySelector('button[onclick="publishP()"]');
+        publicarButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la acción de publicación
+          
+         
+        });
+    } else {
+       
+        displayProductosPublicados(); // Cargar los productos publicados si está logueado
+    }
+};

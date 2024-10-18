@@ -22,6 +22,12 @@
     box-shadow: 0 0 18px rgba(202, 33, 33, 0.5);
 }
 
+
+/*nav:hover {
+    background-color: rgb(255, 140, 140);
+    transition: 0.3s;
+}*/
+
 #navNombre{
     font-size: 4vw;
     font-weight: bold;
@@ -153,7 +159,7 @@ body {
 }
 
 .dropbtn {
-    background-color: #000000;
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -163,6 +169,7 @@ body {
 
 .dropdown-content {
     display: none; /* Ocultar contenido por defecto */
+    position: absolute;
     background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -175,11 +182,9 @@ body {
 }
 
 .divider {
-    height: 8px;
+    height: 1px;
     background-color: #ccc;
-    margin: 9px 0;
-    
-    
+    margin: 5px 0;
 }
 
 /* CARRUSEL */
@@ -574,175 +579,6 @@ footer p{
         right: 10px;
         width: 50px;
         height: 50px;
-    }
-
-    /*MAIN*/
-    #presentacion{
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 8vw;
-        padding-bottom: 30vw;
-        height: 15vw;
-    }
-    #saludo h1{
-        color: black;
-        text-align: center;
-        font-size: 8vw;
-        margin-bottom: 3vw;
-    }
-    #saludo p{
-        color: black;
-        font-size: 2vw;
-        text-align: center;
-    }
-
-    /* CARRUSEL */
-    .carousel-inner{
-        height: 35vw;
-    }
-    .carousel-item{
-        height: 35vw;
-    }
-
-
-    /*PIE DE PÁGINA*/
-    footer{
-        background-color: rgb(255, 255, 255);
-    }
-    .contenedorDatosRedes{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        height: 20vw;
-        border-top: solid;
-    }
-    .datosYredes{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr;
-        gap: 20vw;
-        justify-items: center;
-        align-items: center;
-        width: 80vw;
-        padding: 4vw;
-        margin-top: 15vw;
-        margin-bottom: 15vw;
-    }
-    .datos h1{
-        font-weight: bold;
-        font-size: 1.5vw;
-        padding-bottom: 3vw;
-    }
-    .datos h2{
-        font-size: 1vw;
-        margin: 0;
-    }
-    .redes h1{
-        font-weight: bold;
-        font-size: 1.5vw;
-        padding-bottom: 3vw;
-    }
-    .redes .iconos{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr;
-        gap: 0.9vw;
-    }
-    .iconos i{
-        font-size: 2vw;
-        color: black;
-    }
-    .iconos a{
-        border-radius: 50%;
-        transition: transform 0.25s;
-    }
-    .iconos a:hover{
-        transform: scale(1.2);
-    }
-    footer p{
-        background-color: rgb(89, 89, 89);
-        text-align: center;
-        color: white;
-        font-size: 0.8vw;
-        padding: 1.5vw;
-        margin: 0;
-    }
-}
-/*--- FORMATO LAPTOP L ---*/
-@media screen and (min-width: 1440PX){
-    /*CUERPO (BODY) de la pagina*/
-    #cuerpo{
-        margin: 0;
-        padding: 0;
-        background-color: white;
-        font-family: "Nunito", sans-serif;
-        padding-top: 6vw;
-    }
-
-    /*ENCABEZADO*/
-    /* Encabezado (nav) */
-    #navegador{
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 6vw; /* Puedes ajustar el tamaño según la vista */
-        z-index: 1000; /* Asegúrate de que tenga un valor alto para que esté encima del contenido */
-        background-color: white; /* Asegúrate de que tenga un fondo visible */
-        box-shadow: 0 0 18px rgba(202, 33, 33, 0.5);
-    }
-
-    #navegador:hover{
-        background-color: rgb(255, 140, 140);
-        transition: 0.3s;
-    }
-
-    #navNombre{
-        font-size: 1.6vw;
-        font-weight: bold;
-        color: rgb(190, 8, 8);
-    }
-
-    .login-button {
-        background-color: rgb(190, 8, 8);
-        color: rgb(255, 255, 255);
-        font-size: 1vw;
-        padding: 8px 20px;
-        border-radius: 50px;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .offcanvas-body a{
-        padding: 0;
-        color: black;
-        font-size: large;
-    }
-
-    .offcanvas-body a:hover{
-        padding: 0;
-        color: black;
-        font-size: large;
-    }
-
-    .nav-link::before{
-        content:"";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        visibility: hidden;
-        transition: 0.3s ease-in-out;
-        border-bottom: 0.3VW solid black;
-    }
-
-    .nav-link:hover::before, .nav-link.active::before{
-        width: 100%;
-        visibility: visible;
     }
 
     /*MAIN*/

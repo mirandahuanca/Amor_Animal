@@ -1,7 +1,7 @@
 // index.js
 document.addEventListener("DOMContentLoaded", function() {
     const nombreUser = document.getElementById("botonLogin");
-    const botonCerrarSesion = document.getElementById("botonCerrarSesion");
+    const botonCerrarSesion = document.getElementById("botonCerrarSesion"); 
 
     // Verificar si hay un usuario logueado en localStorage
     const loggedInUser = localStorage.getItem("loggedInUser");

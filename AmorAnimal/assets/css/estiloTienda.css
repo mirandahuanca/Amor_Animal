@@ -83,7 +83,6 @@ main{
     grid-template-rows: auto;
 }
 .formProductoNuevo{
-    display: none;
     justify-content: space-between; 
     align-items: center;
     margin: 20px auto;
@@ -148,7 +147,6 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 2vw;
 }
 
 #productos{

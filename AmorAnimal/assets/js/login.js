@@ -1,3 +1,4 @@
+let formularioCreacionProductos = document.querySelector(".formProductoNuevo");
 document.getElementById("formulario").addEventListener("submit", function(event) {
     event.preventDefault();  // Evitar el envío del formulario por defecto
 
@@ -19,6 +20,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
             icon: "success",
             timer: 5000,
         });
+        formularioCreacionProductos.style.display = 'block';
    
     } else if (email === userEmail && contraseña === userContraseña) {
         localStorage.setItem("loggedInUser", "User1");
@@ -28,6 +30,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
             icon: "success",
             timer: 5000,
         });
+        formularioCreacionProductos.style.display = 'block';
     } else {
         alert("Email o contraseña incorrectos");
     }

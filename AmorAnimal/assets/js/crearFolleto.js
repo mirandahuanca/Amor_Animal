@@ -9,17 +9,20 @@ function seleccionarPlantilla(templateId) {
 
 }
 
-//mirs, viste que para
 function publishPet() {
+    if (!verificarLogin()) {
+        alert("Debes iniciar sesión para publicar una mascota.");
+        return;
+    }
+
     const nombre = document.getElementById('pet-nombre').value;
     const descripcion = document.getElementById('pet-descripcion').value;
     const telefono = document.getElementById('telefono').value;
 
-    if (nombre==="" || descripcion==="" || telefono==="") {
+    if (nombre === "" || descripcion === "" || telefono === "") {
         alert('Por favor, completa todos los campos.');
         return;
     }
-
     const mascota = {
         nombre: nombre,
         descripcion: descripcion,
@@ -46,7 +49,7 @@ function displaymascotaPublicada() {
         petElement.innerHTML = `
             <h3>Nombre: ${pet.nombre}</h3>
             <p>Descripción: ${pet.descripcion}</p>
-            <p>telefono: ${pet.contact}</p>
+            <p>telefono: ${pet.telefono}</p>
         `;
         publishedPetsContainer.appendChild(petElement);
     });
@@ -131,6 +134,7 @@ function publishPet() {
     document.getElementById("edit-form").reset();
     document.getElementById("imagePreview").style.display = "none"; // Oculta la imagen
     document.getElementById("edit-section").style.display = "none"; // Oculta el formulario
+    
 }
 
  // Función para guardar la mascota en localStorage
@@ -182,6 +186,34 @@ imagenElement.style.display = "block";
 // Cargar las mascotas publicadas al cargar la página
 window.onload = function() {
     displaymascotaPublicada();
+   
 };
 
 window.onload = cargarMascotasPublicadas;
+
+function verificarLogin() {
+    const usuarioLogueado = localStorage.getItem("loggedInUser");
+    return usuarioLogueado !== null;
+}
+
+window.onload = function() {
+    if (!verificarLogin()) {
+        // Deshabilitar botón de crear folleto
+        const crearFolletoButton = document.querySelector('.crearFolleto-button');
+        crearFolletoButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar el enlace
+           alert("Debe iniciar sesión para crear el folleto");
+        });
+
+        // Deshabilitar botón de publicar producto
+        const publicarButton = document.querySelector('button[onclick="publishP()"]');
+        publicarButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la acción de publicación
+            alert("Debe iniciar sesión para crear el folleto");
+            console.log(typeof Swal)
+        });
+    } else {
+        cargarMascotasPublicadas(); // Cargar las mascotas publicadas si está logueado
+        displayProductosPublicados(); // Cargar los productos publicados si está logueado
+    }
+};

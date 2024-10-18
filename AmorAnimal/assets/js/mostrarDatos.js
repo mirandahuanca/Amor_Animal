@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const dni = localStorage.getItem("dni");
     const direccion = localStorage.getItem("direccion");
     const email = localStorage.getItem("email");
-  const botonCerrarSesion = document.getElementById("botonCerrarSesion");
+    const botonCerrarSesion = document.getElementById("botonCerrarSesion");
+
     // Mostrar los datos en la página
     document.getElementById("mostrarNombre").textContent = nombre;
     document.getElementById("mostrarApellido").textContent = apellido;
@@ -31,9 +32,15 @@ window.addEventListener("click", function() {
     });
 });
 
+const botonCerrarSesion = document.getElementById("botonCerrarSesion");
+
 botonCerrarSesion.addEventListener("click", function() {
-    // Restablecer valores al cerrar sesión
+    // Eliminar el usuario de localStorage
     localStorage.removeItem("loggedInUser");
-  
+
+    // Ocultar el botón de cerrar sesión
     botonCerrarSesion.style.display = "none";
+
+    // Redirigir al index.html
+    window.location.href = "../../index.html"; 
 });

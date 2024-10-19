@@ -32,6 +32,34 @@ window.addEventListener("click", function() {
     });
 });
 
+function cargarMascotasPublicadas() {
+    const mascotasGuardadas = localStorage.getItem("mascotasPublicadas");
+    const contenedor = document.getElementById("mascotasPublicadasUsuario");
+    contenedor.innerHTML = ''; // Limpiar contenido previo
+
+    if (mascotasGuardadas) {
+        const mascotas = JSON.parse(mascotasGuardadas);
+        mascotas.forEach(mascota => {
+            const mascotaDiv = document.createElement("div");
+            mascotaDiv.classList.add("published-mascota");
+
+            mascotaDiv.innerHTML = `
+                <h3>${mascota.nombre}</h3>
+                <p><strong>Descripción:</strong> ${mascota.descripcion}</p>
+                <p><strong>Teléfono:</strong> ${mascota.telefono}</p>
+                <img src="${mascota.imagen}" style="max-width: 150px; display: block;" />
+            `;
+            contenedor.appendChild(mascotaDiv);
+        });
+    } else {
+        contenedor.innerHTML = '<p>No hay mascotas publicadas.</p>';
+    }
+}
+
+// Cargar las mascotas al iniciar la página
+window.onload = function() {
+    cargarMascotasPublicadas(); // Siempre cargar las mascotas publicadas
+};
 const botonCerrarSesion = document.getElementById("botonCerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function() {

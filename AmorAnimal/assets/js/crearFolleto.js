@@ -104,6 +104,7 @@ function cargarMascotasPublicadas() {
     }
 }
 
+
 function publishPet() {
     const nombre = document.getElementById("pet-nombre").value;
     const descripcion = document.getElementById("pet-descripcion").value;
@@ -145,24 +146,24 @@ function guardarMascota(mascota) {
     localStorage.setItem("mascotasPublicadas", JSON.stringify(mascotas));
 }
 
-// Cargar mascotas al iniciar la página
+// Función para publicar una mascota con la plantilla seleccionada
 function publicarMascota(nombre, descripcion, telefono, imagen, plantilla) {
     const mascotaDiv = document.createElement("div");
     mascotaDiv.classList.add("published-mascota");
-// Crea un elemento de imagen
-const imagenElement = document.createElement("img");
-imagenElement.src = imagen;
-imagenElement.style.maxWidth = "150px";
-imagenElement.style.display = "block";
-    // Aplica el estilo de la plantilla seleccionada
+
+    const imagenElement = document.createElement("img");
+    imagenElement.src = imagen;
+    imagenElement.style.maxWidth = "150px";
+    imagenElement.style.display = "block";
+
     switch (plantilla) {
         case 'Plantilla 1':
             mascotaDiv.classList.add("template1");
-            imagenElement.classList.add("formaCorazon"); // Forma de corazón
+            imagenElement.classList.add("formaCorazon");
             break;
         case 'Plantilla 2':
             mascotaDiv.classList.add("template2");
-            imagenElement.classList.add("formaEstrella"); // Forma de estrella
+            imagenElement.classList.add("formaEstrella");
             break;
         case 'Plantilla 3':
             mascotaDiv.classList.add("template3");
@@ -171,32 +172,35 @@ imagenElement.style.display = "block";
         default:
             break;
     }
-   
-    // Establece el contenido de la mascota publicada
+
     mascotaDiv.innerHTML = `
-    
-         <h3>${nombre}</h3>
+        <h3>${nombre}</h3>
         <p><strong>Descripción:</strong> ${descripcion}</p>
         <p><strong>Teléfono:</strong> ${telefono}</p>
     `;
     mascotaDiv.appendChild(imagenElement);
-    document.getElementById("mascotasPublicadas").appendChild(mascotaDiv); // Agrega la mascota publicada a la sección
+    document.getElementById("mascotasPublicadas").appendChild(mascotaDiv);
 }
 
 // Cargar las mascotas publicadas al cargar la página
 window.onload = function() {
     displaymascotaPublicada();
+    verificarLogin();
    
 };
 
-window.onload = cargarMascotasPublicadas;
-
+// Cargar las mascotas publicadas al cargar la página
+window.onload = function() {
+    cargarMascotasPublicadas(); // Siempre cargar los folletos publicados
+};
 function verificarLogin() {
     const usuarioLogueado = localStorage.getItem("loggedInUser");
     return usuarioLogueado !== null;
+  
 }
 
 window.onload = function() {
+    cargarMascotasPublicadas();
     if (!verificarLogin()) {
         // Deshabilitar botón de crear folleto
         const crearFolletoButton = document.querySelector('.crearFolleto-button');
@@ -205,15 +209,9 @@ window.onload = function() {
            alert("Debe iniciar sesión para crear el folleto");
         });
 
-        // Deshabilitar botón de publicar producto
-        const publicarButton = document.querySelector('button[onclick="publishP()"]');
-        publicarButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Evitar la acción de publicación
-            alert("Debe iniciar sesión para crear el folleto");
-            console.log(typeof Swal)
-        });
+        
     } else {
         cargarMascotasPublicadas(); // Cargar las mascotas publicadas si está logueado
-        displayProductosPublicados(); // Cargar los productos publicados si está logueado
+      // Cargar los productos publicados si está logueado
     }
 };

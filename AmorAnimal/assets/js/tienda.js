@@ -1,3 +1,37 @@
+// Selecciona todas las cartas de productos
+let productCards = document.querySelectorAll('.card');
+
+// Crear un array vacío para almacenar los productos
+let productsArray = [];
+
+// Recorre cada tarjeta de producto y extrae la información
+for (let i = 0; i < productCards.length; i++) {
+    let card = productCards[i];
+    
+    // Extraer los detalles del producto
+    let name = card.querySelector('.card-title').innerText;
+    let price = card.querySelector('.card-price').innerText;
+    let stock = card.querySelector('.card-stock').innerText;
+    let image = card.querySelector('img').src;
+    
+    // Crear un objeto con los datos del producto
+    let product = {
+        name: name,
+        price: price,
+        stock: stock,
+        image: image
+    };
+
+    // Agregar el objeto al array de productos
+    productsArray.push(product);
+}
+
+// Mostrar el array en la consola
+console.log(productsArray);
+
+
+//
+
 function abrirSelector() {
     document.getElementById("fileInput").click();
 }

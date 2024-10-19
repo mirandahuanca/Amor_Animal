@@ -215,3 +215,5 @@ window.onload = function() {
       // Cargar los productos publicados si está logueado
     }
 };
+
+

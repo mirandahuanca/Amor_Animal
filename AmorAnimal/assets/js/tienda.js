@@ -76,6 +76,8 @@ function CargarProductosPublicados() {
             icon: "error",
             title: "Usted no ha iniciado sesión",
             text: "¿No tiene cuenta?",
+            showConfirmButton: false,
+            showCloseButton: true, 
             footer: '<a href="register.html">Registrate Aquí</a>'
           });
         return;
@@ -161,6 +163,7 @@ window.onload = function() {
                 icon: "error",
                 title: "Usted no ha iniciado sesión",
                 text: "¿No tiene cuenta?",
+                showConfirmButton: false,
                 footer: '<a href="register.html">Registrate Aquí</a>'
               });
         });
@@ -176,4 +179,46 @@ window.onload = function() {
        
         displayProductosPublicados(); // Cargar los productos publicados si está logueado
     }
+};
+
+
+function cargarProductosPublicados() {
+    const productosGuardados = localStorage.getItem("productos");
+    const contenedor = document.getElementById("productosPublicadosUsuario");
+    contenedor.innerHTML = ''; // Limpiar contenido previo
+
+    if (productosGuardados) {
+        const productos = JSON.parse(productosGuardados);
+        productos.forEach((producto, index) => {
+            const productoDiv = document.createElement("div");
+            productoDiv.classList.add("producto");
+
+            productoDiv.innerHTML = `
+                <h3>${producto.nombre}</h3>
+                <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+                <p><strong>Precio:</strong> ${producto.precio}</p>
+                <button onclick="eliminarProducto(${index})">Eliminar</button>
+            `;
+            contenedor.appendChild(productoDiv);
+        });
+    } else {
+        contenedor.innerHTML = '<p>No hay productos publicados.</p>';
+    }
+}
+
+function eliminarProducto(index) {
+    const productosGuardados = localStorage.getItem("productos");
+    if (productosGuardados) {
+        let productos = JSON.parse(productosGuardados);
+        // Eliminar el producto seleccionado
+        productos.splice(index, 1);
+        // Guardar nuevamente en localStorage
+        localStorage.setItem("productos", JSON.stringify(productos));
+        cargarProductosPublicados(); // Recargar la lista
+    }
+}
+
+// Cargar los productos al iniciar la página
+window.onload = function() {
+    cargarProductosPublicados(); // Cargar los productos publicados
 };

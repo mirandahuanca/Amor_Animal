@@ -29,6 +29,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
             title: "¡Ha iniciado sesion!",
             icon: "success",
             timer: 5000,
+            
         });
         formularioCreacionProductos.style.display = 'block';
     } else {

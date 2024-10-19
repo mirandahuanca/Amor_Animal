@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     const nombre = localStorage.getItem("nombre");
     const apellido = localStorage.getItem("apellido");
@@ -32,34 +33,10 @@ window.addEventListener("click", function() {
     });
 });
 
-function cargarMascotasPublicadas() {
-    const mascotasGuardadas = localStorage.getItem("mascotasPublicadas");
-    const contenedor = document.getElementById("mascotasPublicadasUsuario");
-    contenedor.innerHTML = ''; // Limpiar contenido previo
+ 
 
-    if (mascotasGuardadas) {
-        const mascotas = JSON.parse(mascotasGuardadas);
-        mascotas.forEach(mascota => {
-            const mascotaDiv = document.createElement("div");
-            mascotaDiv.classList.add("published-mascota");
 
-            mascotaDiv.innerHTML = `
-                <h3>${mascota.nombre}</h3>
-                <p><strong>Descripción:</strong> ${mascota.descripcion}</p>
-                <p><strong>Teléfono:</strong> ${mascota.telefono}</p>
-                <img src="${mascota.imagen}" style="max-width: 150px; display: block;" />
-            `;
-            contenedor.appendChild(mascotaDiv);
-        });
-    } else {
-        contenedor.innerHTML = '<p>No hay mascotas publicadas.</p>';
-    }
-}
 
-// Cargar las mascotas al iniciar la página
-window.onload = function() {
-    cargarMascotasPublicadas(); // Siempre cargar las mascotas publicadas
-};
 const botonCerrarSesion = document.getElementById("botonCerrarSesion");
 
 botonCerrarSesion.addEventListener("click", function() {
@@ -72,3 +49,43 @@ botonCerrarSesion.addEventListener("click", function() {
     // Redirigir al index.html
     window.location.href = "../../index.html"; 
 });
+
+function cargarMascotasPerdidas() {
+    const productosGuardados = localStorage.getItem("mascotasPublicadas");
+    const contenedor = document.getElementById("mascotasPublicadasUsuario");
+
+    if (productosGuardados) {
+        const mascotasPublicadas = JSON.parse(productosGuardados);
+        contenedor.innerHTML = ''; // Limpiar el contenido anterior
+        if (mascotasPublicadas.length > 0) {
+            mascotasPublicadas.forEach((mascota, index) => {
+                const mascotaDiv = document.createElement('div');
+                mascotaDiv.classList.add('published-pet');
+                mascotaDiv.innerHTML = `
+                    <h3>Nombre: ${mascota.nombre}</h3>
+                    <p>Descripción: ${mascota.descripcion}</p>
+                    <p>Teléfono: ${mascota.telefono}</p>
+                    <button onclick="eliminarMascota(${index})">Eliminar</button>
+                `;
+                contenedor.appendChild(mascotaDiv);
+            });
+        } else {
+            contenedor.innerHTML = '<p>No hay mascotas publicadas.</p>';
+        }
+    } else {
+        contenedor.innerHTML = '<p>No hay mascotas publicadas.</p>';
+    }
+}
+
+function eliminarMascota(index) {
+    const productosGuardados = localStorage.getItem("mascotasPublicadas");
+    if (productosGuardados) {
+        let productos = JSON.parse(productosGuardados);
+        productos.splice(index, 1); // Eliminar la mascota seleccionada
+        localStorage.setItem("mascotasPublicadas", JSON.stringify(productos));
+       cargarMascotasPerdidas(); // Actualizar la lista
+    }
+}
+
+   cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
+

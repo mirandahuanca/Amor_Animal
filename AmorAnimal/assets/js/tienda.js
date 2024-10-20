@@ -1,224 +1,198 @@
-// Selecciona todas las cartas de productos
-let productCards = document.querySelectorAll('.card');
-
-// Crear un array vacío para almacenar los productos
-let productsArray = [];
-
-// Recorre cada tarjeta de producto y extrae la información
-for (let i = 0; i < productCards.length; i++) {
-    let card = productCards[i];
-    
-    // Extraer los detalles del producto
-    let name = card.querySelector('.card-title').innerText;
-    let price = card.querySelector('.card-price').innerText;
-    let stock = card.querySelector('.card-stock').innerText;
-    let image = card.querySelector('img').src;
-    
-    // Crear un objeto con los datos del producto
-    let product = {
-        name: name,
-        price: price,
-        stock: stock,
-        image: image
-    };
-
-    // Agregar el objeto al array de productos
-    productsArray.push(product);
-}
-
-// Mostrar el array en la consola
-console.log(productsArray);
-
-
-//
-
-function abrirSelector() {
-    document.getElementById("fileInput").click();
+class Producto{
+    constructor(nombre, precio, descripcion){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
+    }
 }
 
 
-function validarArchivo(input) {
-    const archivo = input.files[0];
-    if (archivo) {
-        const tipoArchivo = archivo.type;
-        if (tipoArchivo !== "image/jpeg") {
-            alert("El archivo seleccionado no es de tipo .jpg");
-            input.value = ""; // Resetea el campo de archivo
-        } else {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imagenVistaPrevia = document.getElementById("imagePreview");
-                imagenVistaPrevia.src = e.target.result;
-                imagenVistaPrevia.style.display = "block";
+
+function validacionForm(){
+    let nombre = document.getElementById("nombre").value;
+    let precio = document.getElementById("precio").value;
+    let stock = document.getElementById("stock").value;
+
+    if (isNaN(precio) && isNaN(stock)){
+        alert("No puede ingresar letras en el precio y stock, debe ingresar numeros.")
+        return false;
+    }
+    else{
+        if(isNaN(precio)){
+            alert("No puede ingresar letras en el precio, debe ingresar numeros.")
+            return false;
+        }
+        else{
+            if(isNaN(stock)){
+                alert("No puede ingresar letras en el stock, debe ingresar numeros.")
+                return false;
             }
-            reader.readAsDataURL(archivo); // Lee el archivo como URL de datos
+        }
+    }
+
+
+    if(nombre == "" || precio == "" || stock == ""){
+        alert("El formulario está incompleto.")
+        return false;
+    }
+
+    return true;
+}
+
+
+
+
+let listaProductos;
+/*
+async function getProducts(){    
+    let listaProductos = [
+        { nombre: "DANVOUY Womens T Shirt Casual Cotton Short", precio: 12.99, stock: 145 },
+        { nombre: "Opna Women's Short Sleeve Moisture", precio: 7.95, stock: 146 },
+        { nombre: "MBJ Women's Solid Short Sleeve Boat Neck V", precio: 9.85, stock: 679 },
+    ];
+
+    try{
+        let response = await fetch("https://fakestoreapi.com/products?limit=4");
+        response = await response.json();
+        response.forEach((producto) =>{
+            let productoActual = {
+                nombre: producto.title,
+                precio: producto.price,
+                stock: producto.rating.count,
+            }
+
+            listaProductos.push(productoActual);
+            localStorage.setItem("productos", JSON.stringify(listaProductos));
+            listaProductos = JSON.parse(localStorage.getItem("productos"));            
+        });
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+*/
+
+
+
+let cont = 0;
+function cartas(){
+
+    if(localStorage.getItem("productos") == null){
+        listaProductos = [];
+    }
+    else{
+        listaProductos = JSON.parse(localStorage.getItem("productos"));
+    }
+    
+    
+    
+    
+
+    let carta= "";
+    const contenedorproductos = document.getElementById("productos");
+    listaProductos.forEach((producto, index) =>{
+        carta += `<div class="card" id="producto${index}" style="width: 18rem;">`;
+        carta += `<img src="https://dummyimage.com/600x400/000/fff" class="card-img-top" alt="...">`;
+            carta += `<div class="card-body">`;
+                carta += `<h5 class="card-title">${producto.nombre}</h5>`;
+                carta += `<p class="card-text">$${producto.precio}</p>`;
+                carta += `<p class="card-text2">Descripcion: ${producto.descripcion}</p>`;
+                carta += `<input type="submit" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">`;
+            carta += `</div>`;
+        carta += `</div>`;
+
+        cont = index
+    });
+    
+    contenedorproductos.innerHTML = carta;
+
+
+    
+
+    let listaAñadidos;
+
+    if(localStorage.getItem("productosAñadidos") == null){
+        listaAñadidos = [];
+    }
+    else{
+        listaAñadidos = JSON.parse(localStorage.getItem("productosAñadidos"));
+    }
+    
+
+    for (let i = 0; i<cont+1; i++){
+        let botonañadir = document.getElementById("botonañadir" + i);
+
+        botonañadir.onclick = (e) =>{
+            e.preventDefault()
+
+            listaProductos = JSON.parse(localStorage.getItem("productos"));
+
+            let producto = new Producto(listaProductos[i].nombre, listaProductos[i].precio, listaProductos[i].descripcion);
+
+            listaAñadidos.push(producto);
+
+            localStorage.setItem("productosAñadidos", JSON.stringify(listaAñadidos));
         }
     }
 }
 
+document.onload = cartas();
 
-// Función para cargar las mascotas publicadas desde localStorage
-function CargarProductosPublicados() {
-    const productosGuardados = localStorage.getItem("productos");
-    if (productosGuardados) {
-        const productos = JSON.parse(productosGuardados);
-        productos.forEach(producto => {
-            publicarProducto(producto.nombre, producto.precio, producto.stock, producto.imagen);
-        });
+
+
+
+
+
+const formProductos = document.getElementById("formulario");
+
+function esAdmin(){
+    let adminActivo = localStorage.getItem("Administrador");
+    
+    if(adminActivo == "ACTIVO"){
+        formProductos.style.display = "block";
+    }
+    else{
+        formProductos.style.display = "none";
     }
 }
 
+esAdmin();
 
- // Función para publicar la mascota (y guardarla en localStorage)
- function publishP() {
-    if (!verificarLogin()) {
-        Swal.fire({
-            icon: "error",
-            title: "Usted no ha iniciado sesión",
-            text: "¿No tiene cuenta?",
-            showConfirmButton: false,
-            showCloseButton: true, 
-            footer: '<a href="register.html">Registrate Aquí</a>'
-          });
-        return;
+
+
+
+
+
+
+
+function agregaProd(){
+    if (validacionForm() == true){
+
+        let nombre = document.getElementById("nombre").value;
+        let precio = document.getElementById("precio").value;
+        let stock = document.getElementById("stock").value;
+
+        listaProductos = JSON.parse(localStorage.getItem("productos"));
+
+        let prod = new Producto(nombre, precio, stock);
+    
+        listaProductos.push(prod);
+
+        localStorage.setItem("productos", JSON.stringify(listaProductos));
+        cartas();
+        document.getElementById("nombre").value = "";
+        document.getElementById("precio").value = "";
+        document.getElementById("descripcion").value = "";
     }
-
-    const nombre = document.getElementById('nombre').value;
-    const precio = document.getElementById('precio').value;
-    const stock = document.getElementById('stock').value;
-
-    const imagen = document.getElementById("imagePreview").src;
-
-    // Crear objeto para la mascota
-    const producto = {
-        nombre: nombre,
-        precio: precio,
-        stock: stock,
-        imagen: imagen,
-    };
-
-    // Guardar en localStorage
-    guardarProducto(producto);
-
-    // Publicar la mascota con el estilo de la plantilla seleccionada
-    publicarProducto(nombre, precio, stock, imagen);
-
-    // Limpiar el formulario
-    document.getElementById("edit-form").reset();
-    document.getElementById("imagePreview").style.display = "none"; // Oculta la imagen
-    document.getElementById("edit-section").style.display = "none"; // Oculta el formulario
+    
 }
 
 
 
-// Función para guardar el producto en localStorage
-function guardarProducto(producto) {
-    const productosGuardados = localStorage.getItem("productos");
-    let productos = productosGuardados ? JSON.parse(productosGuardados) : [];
-    productos.push(producto);
-    localStorage.setItem("productos", JSON.stringify(productos));
+let boton = document.getElementById("boton");
+
+boton.onclick = (e) =>{
+    e.preventDefault()
+    validacionForm()
+    agregaProd()
 }
-
-// Función para mostrar producto publicado en el DOM
-function publicarProducto(nombre, precio, stock, imagen) {
-    const productoDiv = document.createElement("div");
-    productoDiv.classList.add("published-mascota");
-
-    // Establece el contenido del producto publicado
-    productoDiv.innerHTML = `
-        <div class="card">
-            <img src="${imagen}" class="card-img-top img-fluid" alt="Producto Imagen">
-            <div class="card-body">
-                <h5 class="card-title">${nombre}</h5>
-                <p class="card-text">Precio: ${precio}</p>
-                <p class="card-text">Stock: ${stock}</p>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-    `;
-
-    document.getElementById("productos").appendChild(productoDiv);  
-}
-
-// Cargar productos al iniciar la página
-
-// Cargar las mascotas publicadas al cargar la página
-window.onload = function() {
-    displayProductosPublicados();
-};
-
-window.onload = CargarProductosPublicados;
-function verificarLogin() {
-    const usuarioLogueado = localStorage.getItem("loggedInUser");
-    return usuarioLogueado !== null;
-}
-
-window.onload = function() {
-    if (!verificarLogin()) {
-        // Deshabilitar botón de crear folleto
-        const crearFolletoButton = document.querySelector('.crearFolleto-button');
-        crearFolletoButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Evitar el enlace
-            Swal.fire({
-                icon: "error",
-                title: "Usted no ha iniciado sesión",
-                text: "¿No tiene cuenta?",
-                showConfirmButton: false,
-                footer: '<a href="register.html">Registrate Aquí</a>'
-              });
-        });
-
-        // Deshabilitar botón de publicar producto
-        const publicarButton = document.querySelector('button[onclick="publishP()"]');
-        publicarButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Evitar la acción de publicación
-          
-         
-        });
-    } else {
-       
-        displayProductosPublicados(); // Cargar los productos publicados si está logueado
-    }
-};
-
-
-function cargarProductosPublicados() {
-    const productosGuardados = localStorage.getItem("productos");
-    const contenedor = document.getElementById("productosPublicadosUsuario");
-    contenedor.innerHTML = ''; // Limpiar contenido previo
-
-    if (productosGuardados) {
-        const productos = JSON.parse(productosGuardados);
-        productos.forEach((producto, index) => {
-            const productoDiv = document.createElement("div");
-            productoDiv.classList.add("producto");
-
-            productoDiv.innerHTML = `
-                <h3>${producto.nombre}</h3>
-                <p><strong>Descripción:</strong> ${producto.descripcion}</p>
-                <p><strong>Precio:</strong> ${producto.precio}</p>
-                <button onclick="eliminarProducto(${index})">Eliminar</button>
-            `;
-            contenedor.appendChild(productoDiv);
-        });
-    } else {
-        contenedor.innerHTML = '<p>No hay productos publicados.</p>';
-    }
-}
-
-function eliminarProducto(index) {
-    const productosGuardados = localStorage.getItem("productos");
-    if (productosGuardados) {
-        let productos = JSON.parse(productosGuardados);
-        // Eliminar el producto seleccionado
-        productos.splice(index, 1);
-        // Guardar nuevamente en localStorage
-        localStorage.setItem("productos", JSON.stringify(productos));
-        cargarProductosPublicados(); // Recargar la lista
-    }
-}
-
-// Cargar los productos al iniciar la página
-window.onload = function() {
-    cargarProductosPublicados(); // Cargar los productos publicados
-};

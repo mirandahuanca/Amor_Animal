@@ -88,4 +88,3 @@ function eliminarMascota(index) {
 }
 
    cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
-

@@ -1,5 +1,6 @@
-let formularioCreacionProductos = document.querySelector(".formProductoNuevo");
-document.getElementById("formulario").addEventListener("submit", function(event) {
+const formularioCreacionProductos = document.querySelector(".formProductoNuevo");
+
+document.getElementById("formularioLogin").addEventListener("submit", function(event) {
     event.preventDefault();  // Evitar el envío del formulario por defecto
 
     const email = document.getElementById("email").value;
@@ -20,18 +21,12 @@ document.getElementById("formulario").addEventListener("submit", function(event)
             icon: "success",
             timer: 5000,
         });
-        formularioCreacionProductos.style.display = 'block';
+        formularioCreacionProductos.style.display = "block";
    
     } else if (email === userEmail && contraseña === userContraseña) {
         localStorage.setItem("loggedInUser", "User1");
-        limpiarCampos(); 
-        Swal.fire({
-            title: "¡Ha iniciado sesion!",
-            icon: "success",
-            timer: 5000,
-            
-        });
-        formularioCreacionProductos.style.display = 'block';
+        
+        formularioCreacionProductos.style.display = "block";
     } else {
         alert("Email o contraseña incorrectos");
     }

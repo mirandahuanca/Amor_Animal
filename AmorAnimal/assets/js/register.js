@@ -1,54 +1,58 @@
-// Obtener el formulario y los campos de entrada
-const formulario = document.getElementById("formulario");
-
-// Evento cuando se envía el formulario
-formulario.addEventListener("submit", function(event) {
-    event.preventDefault(); // Evitar el envío del formulario por defecto
-
-    // Obtener los valores de los campos
-    const nombre = document.getElementById("nombre").value.trim();
-    const apellido = document.getElementById("apellido").value.trim();
-    const dni = document.getElementById("DNI").value.trim();
-    const direccion = document.getElementById("direccion").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const contraseña = document.getElementById("contraseña").value.trim();
-
-    // Verificar si todos los campos están completos
-    if (nombre === "" || apellido === "" || dni === "" || direccion === "" || email === "" || contraseña === "") {
-        alert("Falta completar algún campo");
-    } else {
-        Swal.fire({
-            title: "¡Registro exitoso!",
-            icon: "success",
-            timer: 5000,
-        });
-        // Guardar los datos en localStorage
-        localStorage.setItem("nombre", nombre);
-        localStorage.setItem("apellido", apellido);
-        localStorage.setItem("dni", dni);
-        localStorage.setItem("direccion", direccion);
-        localStorage.setItem("email", email);
-        localStorage.setItem("contraseña", contraseña); // Si decides encriptarla, sería mejor
-
-        Swal.fire({
-            title: "¡Registro exitoso!",
-            icon: "success",
-            timer: 5000,
-        });
-      limpiarCampos();
-
-        // Redirigir a la página donde se mostrarán los datos
-        //window.location.href = "./mostrarDatos.html";
+class nuevoRegistro {
+    constructor(nombre, apellido, dni, email, contraseña) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.email = email;
+        this.contraseña = contraseña;
     }
-
-});
+}
 
 function limpiarCampos() {
-    document.getElementById("nombre").value = "";  
-    document.getElementById("apellido").value = "";  
-    document.getElementById("dni").value = "";  
-    document.getElementById("direccion").value = "";  
-    document.getElementById("email").value = "";  
-    document.getElementById("contraseña").value = ""; 
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("DNI").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("contraseña").value = "";
+}
 
+const formulario = document.getElementById("formulario");
+const botonAcceso = document.getElementById("botonAcceso");
+
+botonAcceso.onclick = (e) => {
+    e.preventDefault(); // Evitar el envío del formulario por defecto
+
+    // Obtener los valores de los campos
+    let nombre = document.getElementById("nombre").value;
+    let apellido = document.getElementById("apellido").value;
+    let dni = document.getElementById("DNI").value;
+    let email = document.getElementById("email").value;
+    let contraseña = document.getElementById("contraseña").value;
+
+    // Validación de campos vacíos
+    if (nombre === "" || apellido === "" || dni === "" || email === "" || contraseña === "") {
+        alert("Falta completar algún campo");
+    } else {
+        // Verificar si hay usuarios en localStorage, si no, inicializar el array
+        let usuariosRegistrados;
+
+        if(localStorage.getItem("usuariosRegistrados") == null){
+            usuariosRegistrados = [];
+        }
+        else{
+            usuariosRegistrados = JSON.parse(localStorage.getItem("usuariosRegistrados"));
+        }
+
+        // Crear el nuevo usuario y agregarlo a la lista
+        let nuevoUsuario = new nuevoRegistro(nombre, apellido, dni, email, contraseña);
+        usuariosRegistrados.push(nuevoUsuario);
+
+        // Guardar en localStorage
+        localStorage.setItem("usuariosRegistrados", JSON.stringify(usuariosRegistrados));
+
+        limpiarCampos();
+
+        // Redirigir a la página de usuario
+        window.location.href = "../pages/usuario.html";
+    }
 }

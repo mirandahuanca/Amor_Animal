@@ -15,7 +15,7 @@
     <!-- Este es el encabezado del sitio -->
     <header>
         <!-- fixed-top -->
-        <nav class="navbar navbar-expand-lg">
+        <nav id="navegador" class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a id="navNombre" class="navbar-brand" href="/index.html">AMOR ANIMAL</a>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas NavbarLabel">
@@ -26,10 +26,10 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center pe-3">
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" aria-current="page" href="../index.html">Inicio</a>
+                                <a class="nav-link mx-lg-2" aria-current="page" href="/index.html">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="assets/pages/tienda.html">Tienda</a>
+                                <a class="nav-link mx-lg-2" href="/assets/pages/tienda.html">Tienda</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mx-lg-2" href="/assets/pages/mascotasPerdidas.html">Mascotas Perdidas</a>
@@ -71,20 +71,15 @@
                 </div>
 
                 <div class="inputContainer">
-                    <input type="text" class="input" id="direccion" placeholder="direccion" autocomplete="off">
-                    <label class="label">Direccion</label>
-                </div>
-
-                <div class="inputContainer">
-                    <input type="text" class="input" id="email" placeholder="email" autocomplete="off">
-                    <label class="label">Correo Electronico</label>
+                    <input type="email" class="input" id="email" placeholder="email" autocomplete="off">
+                    <label class="label">Email</label>
                 </div>
 
                 <div class="inputContainer">
                     <input type="password" class="input" id="contraseña" placeholder="contraseña" autocomplete="off">
                     <label class="label">Constraseña</label>
                 </div>
-                <div class="contenedorBotones">
+                <div class="contenedorBotonRegistrar">
                     <button type="submit" class="submitBtn" id="botonAcceso" value="Acceso">Crear cuenta</button>
                 </div>
             </form>

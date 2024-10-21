@@ -65,7 +65,7 @@ function cargarMascotasPerdidas() {
                     <h3>Nombre: ${mascota.nombre}</h3>
                     <p>Descripción: ${mascota.descripcion}</p>
                     <p>Teléfono: ${mascota.telefono}</p>
-                    <button onclick="eliminarMascota(${index})">Eliminar</button>
+                    <button  type="button" class="btn btn-danger" onclick="eliminarMascota(${index})">Eliminar</button>
                 `;
                 contenedor.appendChild(mascotaDiv);
             });
@@ -88,3 +88,46 @@ function eliminarMascota(index) {
 }
 
    cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
+
+
+   function cargarProductosPublicados() {
+    const productosGuardados = localStorage.getItem("productos");
+    const contenedor = document.getElementById("productosPublicadosUsuario");
+    contenedor.innerHTML = ''; // Limpiar contenido previo
+
+    if (productosGuardados) {
+        const productos = JSON.parse(productosGuardados);
+        productos.forEach((producto, index) => {
+            const productoDiv = document.createElement("div");
+            productoDiv.classList.add("producto");
+
+            productoDiv.innerHTML = `
+                <h3>${producto.nombre}</h3>
+                  <p><strong>Precio:</strong> ${producto.precio}</p>
+                <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+              
+                <button type="button" class="btn btn-danger" onclick="eliminarProducto(${index})">Eliminar</button>
+            `;
+            contenedor.appendChild(productoDiv);
+        });
+    } else {
+        contenedor.innerHTML = '<p>No hay productos publicados.</p>';
+    }
+}
+
+function eliminarProducto(index) {
+    const productosGuardados = localStorage.getItem("productos");
+    if (productosGuardados) {
+        let productos = JSON.parse(productosGuardados);
+        // Eliminar el producto seleccionado
+        productos.splice(index, 1);
+        // Guardar nuevamente en localStorage
+        localStorage.setItem("productos", JSON.stringify(productos));
+        cargarProductosPublicados(); // Recargar la lista
+    }
+}
+
+// Cargar los productos al iniciar la página
+window.onload = function() {
+    cargarProductosPublicados(); // Cargar los productos publicados
+};

@@ -6,41 +6,23 @@ class Producto{
     }
 }
 
-
-
-function validacionForm(){
+function validacionForm() {
     let nombre = document.getElementById("nombre").value;
     let precio = document.getElementById("precio").value;
-    let stock = document.getElementById("stock").value;
+    let descripcion = document.getElementById("descripcion").value;
 
-    if (isNaN(precio) && isNaN(stock)){
-        alert("No puede ingresar letras en el precio y stock, debe ingresar numeros.")
+    if (nombre === "" || precio === "" || descripcion === "") {
+        alert("El formulario está incompleto.");
         return false;
     }
-    else{
-        if(isNaN(precio)){
-            alert("No puede ingresar letras en el precio, debe ingresar numeros.")
-            return false;
-        }
-        else{
-            if(isNaN(stock)){
-                alert("No puede ingresar letras en el stock, debe ingresar numeros.")
-                return false;
-            }
-        }
-    }
 
-
-    if(nombre == "" || precio == "" || stock == ""){
-        alert("El formulario está incompleto.")
+    if (isNaN(precio)) {
+        alert("El precio debe ser un número.");
         return false;
     }
 
     return true;
 }
-
-
-
 
 let listaProductos;
 /*
@@ -75,117 +57,79 @@ async function getProducts(){
 
 
 let cont = 0;
-function cartas(){
-
-    if(localStorage.getItem("productos") == null){
-        listaProductos = [];
-    }
-    else{
-        listaProductos = JSON.parse(localStorage.getItem("productos"));
-    }
-    
-    
-    
-    
-
-    let carta= "";
-    const contenedorproductos = document.getElementById("productos");
-    listaProductos.forEach((producto, index) =>{
-        carta += `<div class="card" id="producto${index}" style="width: 18rem;">`;
-        carta += `<img src="https://dummyimage.com/600x400/000/fff" class="card-img-top" alt="...">`;
-            carta += `<div class="card-body">`;
-                carta += `<h5 class="card-title">${producto.nombre}</h5>`;
-                carta += `<p class="card-text">$${producto.precio}</p>`;
-                carta += `<p class="card-text2">Descripcion: ${producto.descripcion}</p>`;
-                carta += `<input type="submit" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">`;
-            carta += `</div>`;
-        carta += `</div>`;
-
-        cont = index
-    });
-    
-    contenedorproductos.innerHTML = carta;
 
 
-    
 
-    let listaAñadidos;
 
-    if(localStorage.getItem("productosAñadidos") == null){
-        listaAñadidos = [];
-    }
-    else{
-        listaAñadidos = JSON.parse(localStorage.getItem("productosAñadidos"));
-    }
-    
+let formProductos = document.getElementById("formProductoNuevo");
 
-    for (let i = 0; i<cont+1; i++){
-        let botonañadir = document.getElementById("botonañadir" + i);
 
-        botonañadir.onclick = (e) =>{
-            e.preventDefault()
+function esAdmin() {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    console.log("Usuario logueado:", loggedInUser);  // Esto nos dice qué usuario está logueado
 
-            listaProductos = JSON.parse(localStorage.getItem("productos"));
-
-            let producto = new Producto(listaProductos[i].nombre, listaProductos[i].precio, listaProductos[i].descripcion);
-
-            listaAñadidos.push(producto);
-
-            localStorage.setItem("productosAñadidos", JSON.stringify(listaAñadidos));
-        }
+    if (loggedInUser === "Admin") {
+        console.log("El usuario es admin, mostrando el formulario");
+        formProductos.style.display = "block";// Mostrar el formulario
+    } else if(loggedInUser === "User1") {
+        console.log("El usuario no es admin, ocultando el formulario");
+        formProductos.style.display = "block"; // Ocultar el formulario
     }
 }
-
-document.onload = cartas();
-
-
-
-
-
-
-const formProductos = document.getElementById("formulario");
-
-function esAdmin(){
-    let adminActivo = localStorage.getItem("Administrador");
-    
-    if(adminActivo == "ACTIVO"){
-        formProductos.style.display = "block";
-    }
-    else{
-        formProductos.style.display = "none";
-    }
-}
-
 esAdmin();
 
-
-
-
-
-
-
-
-function agregaProd(){
-    if (validacionForm() == true){
-
+function agregaProd() {
+    if (validacionForm()) {
         let nombre = document.getElementById("nombre").value;
         let precio = document.getElementById("precio").value;
-        let stock = document.getElementById("stock").value;
+        let descripcion = document.getElementById("descripcion").value;
 
-        listaProductos = JSON.parse(localStorage.getItem("productos"));
+        // Obtener la lista de productos desde localStorage o inicializarla
+        listaProductos = JSON.parse(localStorage.getItem("productos")) || [];
 
-        let prod = new Producto(nombre, precio, stock);
+        // Crear un nuevo producto
+        let prod = new Producto(nombre, precio, descripcion);
     
+        // Agregar el producto a la lista
         listaProductos.push(prod);
 
+        // Guardar la lista actualizada en localStorage
         localStorage.setItem("productos", JSON.stringify(listaProductos));
-        cartas();
+        
+        // Actualizar la vista
+        publishP(); 
+        
+        // Limpiar el formulario
         document.getElementById("nombre").value = "";
         document.getElementById("precio").value = "";
         document.getElementById("descripcion").value = "";
     }
-    
 }
+
+function publishP() {
+    // Obtener la lista de productos desde localStorage
+    listaProductos = JSON.parse(localStorage.getItem("productos")) || []; // Inicializar en caso de null
+    
+    let carta = "";
+    const contenedorproductos = document.getElementById("productos");
+    contenedorproductos.innerHTML = ""; // Limpiar el contenedor antes de añadir nuevos productos
+    listaProductos.forEach((producto, index) => {
+        carta += `<div class="card" id="producto${index}" style="width: 18rem;">`;
+        carta += `<img src="https://dummyimage.com/600x400/000/fff" class="card-img-top" alt="...">`;
+        carta += `<div class="card-body">`;
+        carta += `<h5 class="card-title">${producto.nombre}</h5>`;
+        carta += `<p class="card-text">$${producto.precio}</p>`;
+        carta += `<p class="card-text2">Descripcion: ${producto.descripcion}</p>`;
+        carta += `<input type="submit" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">`;
+        carta += `</div>`;
+        carta += `</div>`;
+    });
+    
+    contenedorproductos.innerHTML = carta; // Añadir los productos al contenedor
+}
+
+
+document.onload = publishP();
 
 
 
@@ -195,4 +139,36 @@ boton.onclick = (e) =>{
     e.preventDefault()
     validacionForm()
     agregaProd()
+    publishP(); 
 }
+
+    
+// index.js
+document.addEventListener("DOMContentLoaded", function() {
+    const nombreUser = document.getElementById("botonLogin");
+    const botonCerrarSesion = document.getElementById("botonCerrarSesion"); 
+
+    // Verificar si hay un usuario logueado en localStorage
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+        // Cambiar el texto de 'Iniciar sesión' a 'Hola, User'
+        nombreUser.textContent = `Hola, ${loggedInUser}`;
+        nombreUser.classList.add("login-link");
+        nombreUser.href = "./assets/pages/usuario.html"; // Eliminar el enlace de 'Iniciar sesión'
+      //  botonCerrarSesion.style.display = "inline-block"; // Mostrar botón de cerrar sesión
+    } else {
+        // Mantener el botón de 'Iniciar sesión' si no hay usuario logueado
+        nombreUser.textContent = "Iniciar sesión";
+        nombreUser.href = "./assets/pages/login.html"; // Enlace al login
+    }
+
+    // Evento para cerrar sesión
+    botonCerrarSesion.addEventListener("click", function() {
+        // Restablecer valores al cerrar sesión
+        localStorage.removeItem("loggedInUser");
+        nombreUser.textContent = "Iniciar sesión";
+        nombreUser.href = "./assets/pages/login.html";
+        botonCerrarSesion.style.display = "none";
+    });
+});
+esAdmin();

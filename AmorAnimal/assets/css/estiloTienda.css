@@ -84,7 +84,7 @@ main{
 }
 
 
-.formProductoNuevo {
+#formProductNuevo {
     display: none;
     justify-content: center;
     align-items: center;

@@ -120,7 +120,7 @@ function publishP() {
         carta += `<h5 class="card-title">${producto.nombre}</h5>`;
         carta += `<p class="card-text">$${producto.precio}</p>`;
         carta += `<p class="card-text2">Descripcion: ${producto.descripcion}</p>`;
-        carta += `<input type="submit" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">`;
+        carta += `<input type="submit"  class="btn btn-dark" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">`;
         carta += `</div>`;
         carta += `</div>`;
     });
@@ -154,12 +154,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // Cambiar el texto de 'Iniciar sesión' a 'Hola, User'
         nombreUser.textContent = `Hola, ${loggedInUser}`;
         nombreUser.classList.add("login-link");
-        nombreUser.href = "./assets/pages/usuario.html"; // Eliminar el enlace de 'Iniciar sesión'
+        nombreUser.href = "./usuario.html"; // Eliminar el enlace de 'Iniciar sesión'
       //  botonCerrarSesion.style.display = "inline-block"; // Mostrar botón de cerrar sesión
     } else {
         // Mantener el botón de 'Iniciar sesión' si no hay usuario logueado
         nombreUser.textContent = "Iniciar sesión";
-        nombreUser.href = "./assets/pages/login.html"; // Enlace al login
+        nombreUser.href = "./login.html"; // Enlace al login
     }
 
     // Evento para cerrar sesión

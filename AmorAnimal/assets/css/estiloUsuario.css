@@ -57,137 +57,78 @@
     color: white;
 }
 
-.submitBtnCerrar {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.submitBtnCerrar:hover {
-    box-shadow: 0 0 8px rgb(98, 98, 98);
-}
-
-#botonCerrarSesion{
-    display: none;
-}
-
 
 
 
 
 /*MAIN*/
-main{
-    display: grid;
-    grid-template-rows: auto;
-}
 
-.mensaje_mascota{
-    background-color: rgba(255, 255, 255, 0.658);
-}
-
-.mensaje_mascota h2{
-    margin-top: 5vw;
-    margin-left: 5vw;
-    font-weight: bold;
-}
-
-.mensaje_mascota h3{
-    margin-top: 1vw;
-    margin-left: 5vw;
-    margin-bottom: 2vw;
-    font-weight: bold;
-}
-
-.crearFolleto-button {
-    background-color: rgb(190, 8, 8);
-    color: white;
-    font-size: large;
-    padding: 8px 20px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-left: 5vw;
-    margin-bottom: 5vw;
-}
-    
-.crearFolleto-button:hover {
-    background-color: black;
-    box-shadow: 0 0 8px black;
-}
-
-
-#contenedorPresentacion{
+main {
     display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;       /* Centra verticalmente */
     flex-direction: column;
-    align-items: center;
-}
-#presentacion{
-    background-color: white;
-    padding-top: 50vw;
-    padding-bottom: 50vw;
-    border: 4px solid black;
-    margin: 5vw;
-    box-shadow: 0 0 15px rgb(0, 0, 0);
-}
-#presentacion h1{
-    color: black;
-    text-align: center;
-    font-size: 12vw;
-    margin-bottom: 3vw;
-}
-#presentacion h3{
-    color: black;
-    font-size: 5vw;
-    text-align: center;
+    margin-top: 15vw;
+    margin-bottom: 15vw;
 }
 
-main{
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4vw;
-    margin-bottom: 4vw;
-}
-
+/*DATOS DEL USUARIO*/
 #contenedorDeInformacionUsuario{
-    background-color: #d2ffd3;
+    background-color: rgb(255, 255, 255);
     margin-bottom: 2vw;
+    width: 85%;
+    padding: 5vw 5vw 5vw 5vw;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    width: 100%;
 }
 
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: rgb(190, 8, 8);
+    width: 100%;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 2vw 3vw;
+    font-size: 5vw;
     border: none;
     cursor: pointer;
+    text-align: left;
 }
 
 .dropdown-content {
     display: none; /* Ocultar contenido por defecto */
     background-color: white;
-    min-width: 160px;
+    font-size: 4vw;
+    min-width: 10vw;
+    width: 100%;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     padding: 10px;
 }
 
+
 .dropdown-content p {
-    margin: 5px 0;
+    margin: 1vw 0;
 }
 
 .divider {
     height: 1px;
     background-color: #ccc;
     margin: 5px 0;
+}
+
+.submitBtnCerrar {
+    background-color: #00000000;
+    border: #00000000;
+    color: rgb(98, 98, 98);
+    font-size: 4vw;
+    margin-top: 10vw;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 
@@ -657,6 +598,74 @@ footer p{
 
 
     /*MAIN*/
+
+    main {
+        display: flex;
+        justify-content: center;  /* Centra horizontalmente */
+        align-items: center;       /* Centra verticalmente */
+        flex-direction: column;
+        margin-top: 5vw;
+        margin-bottom: 5vw;
+    }
+
+    /*DATOS DEL USUARIO*/
+    #contenedorDeInformacionUsuario{
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 2vw;
+        width: 85%;
+        padding: 5vw 5vw 5vw 5vw;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .dropbtn {
+        background-color: rgb(190, 8, 8);
+        width: 100%;
+        color: white;
+        padding: 1vw 2vw;
+        font-size: 1.4vw;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .dropdown-content {
+        display: none; /* Ocultar contenido por defecto */
+        background-color: white;
+        font-size: 1.1vw;
+        min-width: 10vw;
+        width: 100%;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        padding: 10px;
+    }
+
+
+    .dropdown-content p {
+        margin: 1vw 0;
+    }
+
+    .divider {
+        height: 1px;
+        background-color: #ccc;
+        margin: 5px 0;
+    }
+
+    .submitBtnCerrar {
+        background-color: #00000000;
+        border: #00000000;
+        color: rgb(98, 98, 98);
+        font-size: 1.3vw;
+        margin-top: 2vw;
+        text-decoration: none;
+        transition: 0.3s;
+    }
 
 
     /* CARRITO */

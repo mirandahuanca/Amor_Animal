@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     const nombre = localStorage.getItem("nombre");
     const apellido = localStorage.getItem("apellido");
@@ -33,8 +32,23 @@ window.addEventListener("click", function() {
     });
 });
 
- 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const nombreUser = document.getElementById("botonLogin");
+
+    // Verificar si hay un usuario logueado en localStorage
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+        // Cambiar el texto de 'Iniciar sesión' a 'Hola, User'
+        nombreUser.textContent = `Hola, ${loggedInUser}`;
+        nombreUser.classList.add("login-link");
+        nombreUser.href = "./usuario.html"; // Eliminar el enlace de 'Iniciar sesión'
+    } else {
+        // Mantener el botón de 'Iniciar sesión' si no hay usuario logueado
+        nombreUser.textContent = "Iniciar sesión";
+        nombreUser.href = "../pages/login.html"; // Enlace al login
+    }
+});
 
 
 const botonCerrarSesion = document.getElementById("botonCerrarSesion");
@@ -43,12 +57,16 @@ botonCerrarSesion.addEventListener("click", function() {
     // Eliminar el usuario de localStorage
     localStorage.removeItem("loggedInUser");
 
-    // Ocultar el botón de cerrar sesión
-    botonCerrarSesion.style.display = "none";
-
     // Redirigir al index.html
     window.location.href = "../../index.html"; 
 });
+
+
+
+
+
+
+
 
 function cargarMascotasPerdidas() {
     const productosGuardados = localStorage.getItem("mascotasPublicadas");
@@ -87,9 +105,17 @@ function eliminarMascota(index) {
     }
 }
 
-   cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
+cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
 
 
+
+
+
+
+
+
+
+/*
    function cargarProductosPublicados() {
     const productosGuardados = localStorage.getItem("productos");
     const contenedor = document.getElementById("productosPublicadosUsuario");
@@ -115,19 +141,8 @@ function eliminarMascota(index) {
     }
 }
 
-function eliminarProducto(index) {
-    const productosGuardados = localStorage.getItem("productos");
-    if (productosGuardados) {
-        let productos = JSON.parse(productosGuardados);
-        // Eliminar el producto seleccionado
-        productos.splice(index, 1);
-        // Guardar nuevamente en localStorage
-        localStorage.setItem("productos", JSON.stringify(productos));
-        cargarProductosPublicados(); // Recargar la lista
-    }
-}
-
 // Cargar los productos al iniciar la página
 window.onload = function() {
     cargarProductosPublicados(); // Cargar los productos publicados
 };
+*/

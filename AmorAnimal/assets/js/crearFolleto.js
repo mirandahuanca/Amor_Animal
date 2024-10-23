@@ -186,7 +186,6 @@ function publicarMascota(nombre, descripcion, telefono, imagen, plantilla) {
 window.onload = function() {
     displaymascotaPublicada();
     verificarLogin();
-   
 };
 
 // Cargar las mascotas publicadas al cargar la página
@@ -196,7 +195,6 @@ window.onload = function() {
 function verificarLogin() {
     const usuarioLogueado = localStorage.getItem("loggedInUser");
     return usuarioLogueado !== null;
-  
 }
 
 window.onload = function() {
@@ -206,7 +204,7 @@ window.onload = function() {
         const crearFolletoButton = document.querySelector('.crearFolleto-button');
         crearFolletoButton.addEventListener('click', function(event) {
             event.preventDefault(); // Evitar el enlace
-           alert("Debe iniciar sesión para crear el folleto");
+            alert("Debe iniciar sesión para crear el folleto");
         });
 
         
@@ -215,6 +213,5 @@ window.onload = function() {
       // Cargar los productos publicados si está logueado
     }
 };
-
 
 

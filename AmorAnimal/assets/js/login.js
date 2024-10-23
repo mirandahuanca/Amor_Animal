@@ -1,5 +1,54 @@
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("formularioLogin").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar el envío del formulario por defecto
+    
+        const email = document.getElementById("email").value;
+        const contraseña = document.getElementById("contraseña").value;
+    
+        const adminEmail= "admin1@gmail.com";
+        const adminContraseña = "1234";
+        const userEmail = "user1@gmail.com";
+        const userContraseña = "2024";
+    
+    
+        if (email === adminEmail && contraseña === adminContraseña) {
+            localStorage.setItem("loggedInUser", "Admin");
+            Swal.fire({
+                title: "¡Bienvenido Administrador!",
+                icon: "success",
+                timer: 5000,
+            }).then(() => {
+                esAdmin()// Aquí llamamos a esAdmin después del inicio de sesión exitoso
+                location.reload();
+            });
+            limpiarCampos(); 
+            
+        } else if (email === userEmail && contraseña === userContraseña) {
+            localStorage.setItem("loggedInUser", "User1");
+            Swal.fire({
+                title: "¡Ha iniciado sesión!",
+                icon: "success",
+                timer: 5000,
+            }).then(() => {
+                esAdmin();  // Aseguramos que el formulario no aparezca para los usuarios normales
+            location.reload(); 
+            });
+            limpiarCampos(); 
+        } else {
+            alert("Email o contraseña incorrectos");
+        }
+    });
+});
+  // Llamar a la función manualmente para ver si se muestra el formulario
 
-let formProductoss = document.getElementById("formProductoNuevo");
+
+
+function limpiarCampos() {
+    document.getElementById("email").value = "";  
+    document.getElementById("contraseña").value = ""; 
+
+};
+/*
 
 document.addEventListener("DOMContentLoaded", function() {
     // Verificar si hay un usuario logueado en localStorage
@@ -77,12 +126,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 */
 
-
-
-function limpiarCampos() {
-    document.getElementById("email").value = "";  
-    document.getElementById("contraseña").value = ""; 
-
-}
 
 

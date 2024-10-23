@@ -56,24 +56,6 @@
     color: white;
 }
 
-.submitBtnCerrar {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.submitBtnCerrar:hover {
-    box-shadow: 0 0 8px rgb(98, 98, 98);
-}
-
-#botonCerrarSesion{
-    display: none;
-}
-
 
 
 
@@ -237,6 +219,7 @@ sel-indicators input{
     margin: 0;
     padding: 4vw;
 }
+
 ::-webkit-scrollbar{
     -webkit-appearance: none;
 }
@@ -286,15 +269,14 @@ sel-indicators input{
     display: flex;
     justify-content: space-between; /* Distribuye los elementos a los extremos */
     align-items: center; /* Alinea verticalmente los elementos */
-    margin: 1vw 3vw;
+
 }
 .carrito-button {
     background-color: black;
     color: rgb(255, 255, 255);
     font-size: 4vw;
-    padding: 8px 20px;
+    padding: 2vw 4vw;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 
@@ -766,8 +748,7 @@ footer p{
         justify-content: center;
         overflow: scroll;
         height: 55vh;
-        margin: 0;
-        padding: 4vw;
+        padding: 0vw 2vw;
     }
     ::-webkit-scrollbar{
         -webkit-appearance: none;
@@ -815,10 +796,11 @@ footer p{
     }
 
     #botonesCarrito{
-        display: flex;
-        justify-content: space-between; /* Distribuye los elementos a los extremos */
-        align-items: center; /* Alinea verticalmente los elementos */
-        margin: 0vw 2vw;
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-rows: 1fr;
+        gap: 15vw;
+        background-color: aqua;
     }
     .carrito-button {
         background-color: black;
@@ -826,7 +808,6 @@ footer p{
         font-size: 1vw;
         padding: 8px 20px;
         text-decoration: none;
-        transition: 0.3s;
     }
 
 

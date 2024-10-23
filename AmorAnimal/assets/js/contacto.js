@@ -9,7 +9,7 @@ formulario.addEventListener("submit", function(event) {
     const telefono= document.getElementById("telefono").value.trim();
     const email = document.getElementById("email").value.trim();
     const mensaje = document.getElementById("mensaje").value.trim();
-   
+
     console.log(nombre);
 
     // Verificar si todos los campos están completos
@@ -24,7 +24,7 @@ formulario.addEventListener("submit", function(event) {
             
         });
         limpiarCampos(); 
-   
+
       // Limpia todos los campos del formulario
     }
 });
@@ -34,6 +34,4 @@ function limpiarCampos() {
     document.getElementById("telefono").value = ""; 
     document.getElementById("email").value = ""; 
     document.getElementById("mensaje").value = ""; 
-
 }
- 

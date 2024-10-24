@@ -77,186 +77,122 @@
 
 
 
+
 /*MAIN*/
 main{
     display: grid;
     grid-template-rows: auto;
 }
 
-
-#formProductoNuevo {
-    display: none;
-    justify-content: center;
+#contenedorPresentacion{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+}
+#presentacion{
+    background-color: white;
+    padding-top: 50vw;
+    padding-bottom: 50vw;
+    border: 4px solid black;
+    margin: 5vw;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+}
+#presentacion h1{
+    color: black;
+    text-align: center;
+    font-size: 12vw;
+    margin-bottom: 3vw;
+}
+#presentacion h3{
+    color: black;
+    font-size: 5vw;
+    text-align: center;
+}
+
+
+/* CARRUSEL */
+
+.carrusel{
+    height: 100%;
+    width: 100%;
+}
+.carousel-inner{
+    height: 100%;
+    color: white;
+}
+
+.carousel-indicators {
+    transform: scale(0.5);    
+}
+/*color de las flecha del carrusel*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+}
+
+sel-indicators input{
+    height: 20%;
+    width: 20%;
     
 }
 
-form {
-    align-items: center;
-    width: 80%;
-    padding-top: 7vw ;
-    padding-bottom: 7vw ;
-    padding-left: 9vw;
-    padding-right: 9vw;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
-    margin-top: 15vw;
-    margin-bottom: 10vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-  
+.carousel-item{
+    height: 60vw;
 }
 
-#productosPublicadosUsuario{
-    margin-top: 5vw;
-    margin-bottom: 5vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
+.carousel-inner img{
+    height: 50vw;
+    width: 100%;
 }
-.title {
-    font-size: 8vw; /* Título más grande en móviles */
+
+
+.carousel-text {
+    position: absolute;
+    top: 10%;  /* Ajusta según la posición que desees */
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(0, 0, 0);
+    font-size: 5.5vw;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 5vw;
-}
-
-.inputContainer {
-    position: relative;
-    height: 12vw;
-    width: 100%;
-    margin-bottom: 5vw;
-}
-
-.input {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border: 1px solid #DADCE0;
-    border-radius: 7px;
-    font-size: 5vw;
-    outline: none;
-    background: none;
-    z-index: 1;
-    padding: 0 6vw;
-}
-
-::placeholder {
-    color: transparent;
-}
-
-.label {
-    position: absolute;
-    top: 3vw;
-    left: 4vw;
-    padding: 0 1vw;
-    background-color: white;
-    color: #aeafb1;
-    font-size: 4vw;
-    transition: 0.5s;
-    z-index: 0;
-}
-
-.input:focus + .label {
-    top: -2vw;
-    left: 2vw;
-    z-index: 10;
-    font-size: 4vw;
-    font-weight: 600;
-    color: black;
-}
-
-.input:focus {
-    border: 2px solid rgb(202, 33, 33);
-}
-
-.input:not(:placeholder-shown) + .label {
-    top: -2vw;
-    left: 2vw;
-    z-index: 10;
-    font-size: 4vw;
-    font-weight: 600;
-}
-
-.contenedorSeleccionImagen{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#customButton{
-    background-color: white;
-    color: black;
-    border: 0.1vw solid black;
-    font-size: 4.5vw;
-}
-#fileInput {
-    display: none;
-}
-
-/* Estiliza el botón personalizado */
-
-
-/* Estilo para la vista previa de la imagen */
-#imagePreview {
-    margin-top: 20px;
-    max-width: 100%; /* Hace que la imagen sea responsiva */
-    display: none; /* Inicialmente oculta */
-}
-
-.col-auto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vw;
-}
-
-form button{
-    background-color: black;
-    color: white;
+    background-color: rgba(158, 158, 158, 0.5);  /* Fondo semitransparente */
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 4.5vw;
-}
-/* FIN DE FORMULARIO */
-
-.submitBtnCerrar {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.submitBtnCerrar:hover {
-    box-shadow: 0 0 8px rgb(98, 98, 98);
-}
-
-#botonCerrarSesion{
-    display: none;
 }
 
 
+/*CONTACTO*/
 
-.container-titulo{
-    display: flex;
-    justify-content: center;
+#contacto{
+    background-color: rgb(202, 33, 33);
+    color: white;
+    justify-content: space-between; 
     align-items: center;
-    flex-direction: column;
-    margin-top: 2vw;
+    max-width: 100%; 
+    padding: 9vw;
 }
 
-#productos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px;
-    flex-wrap: wrap;
+#contacto h2{
+    text-align: center;
+    border-bottom: solid;
+    padding-bottom: 3vw;
+    margin-bottom: 10vw;
 }
 
+.col-auto button{
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+    padding: 2vw 5vw;
+    border: white;
+}
+
+#contacto input:focus, 
+#contacto textarea:focus {
+    outline: none;
+    border: 2px solid rgb(0, 0, 0); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+}
 
 
 /* CARRITO */
@@ -721,139 +657,73 @@ footer p{
         width: 100%;
         visibility: visible;
     }
+    
+    
+    /* CARRUSEL */
+    .carousel-inner{
+        height: 35vw;
+    }
+    .carousel-item{
+        height: 35vw;
+    }
+    .carousel-text {
+        position: absolute;
+        transform: translateX(-50%);
+        color: rgb(0, 0, 0);
+        font-size: 2.5vw;
+        font-weight: bold;
+        text-align: center;
+        background-color: rgba(231, 225, 225, 0.5);  /* Fondo semitransparente */
+        padding: 10vw 20vw;
+        width: 100%;
+        height: 28vw;
+    }
 
 
     /*MAIN*/
-    /*Formulario*/
-
-    form {
-        width: 30%;
-        padding: 2vw 4vw 2vw 4vw;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
-        margin-top: 3vw;
+    #presentacion{
+        background-color: white;
+        padding: 5vw 10vw 15vw 10vw;
+        border: 4px solid black;
+        margin: 2vw;
+        box-shadow: 0 0 15px rgb(0, 0, 0);
+    }
+    #presentacion h1{
+        color: black;
+        text-align: center;
+        font-size: 4vw;
         margin-bottom: 3vw;
     }
-
-    .title {
-        font-size: 2vw; /* Título más grande en móviles */
+    #presentacion h3{
+        color: black;
+        font-size: 1.5vw;
         text-align: center;
+    }
+
+    /*CONTACTO*/
+    #contacto{
+        background-color: rgb(202, 33, 33);
+        color: white;
+        justify-content: space-between; 
+        align-items: center;
+        max-width: 100%; 
+        padding: 8vw 20vw 8vw 20vw;
+        height: 55vw;
+    }
+    
+    #contacto h2{
+        text-align: center;
+        border-bottom: solid;
+        padding-bottom: 1.5vw;
         margin-bottom: 2.5vw;
     }
-
-    .inputContainer {
-        position: relative;
-        height: 3.5vw;
-        width: 100%;
-        margin-bottom: 2vw;
-    }
-
-    .input {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        border: 1px solid #DADCE0;
-        border-radius: 7px;
-        font-size: 1vw;
-        outline: none;
-        background: none;
-        z-index: 1;
-        padding: 0.5vw 2vw;
-    }
-
-    ::placeholder {
-        color: transparent;
-    }
-
-    .label {
-        position: absolute;
-        top: 1vw;
-        left: 1vw;
-        padding: 0 0.5vw;
-        background-color: white;
-        color: #aeafb1;
-        font-size: 1vw;
-        transition: 0.5s;
-        z-index: 0;
-    }
-
-    .input:focus + .label {
-        top: -1vw;
-        left: 0.5vw;
-        z-index: 10;
-        font-size: 1vw;
-        font-weight: 600;
-        color: black;
-    }
-
-    .input:focus {
-        border: 2px solid rgb(202, 33, 33);
-    }
-
-    .input:not(:placeholder-shown) + .label{
-        top: -1vw;
-        left: 0.5vw;
-        z-index: 10;
-        font-size: 1vw;
-        font-weight: 600;
-    }
     
-    #customButton{
+    .col-auto button{
         background-color: white;
         color: black;
-        border: 0.1vw solid black;
-        font-size: 1vw;
-        padding: 0.6vw 2vw;
-    }
-    
-    .col-auto{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1.5vw;
-    }
-    
-    form button{
-        background-color: black;
-        color: white;
-        padding: 1vw 1.5vw;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1.2vw;
-    }
-
-    #productosPublicadosUsuario{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .card-img-top{
-        max-width: 100%;
-        height: 17vw;
-    }
-
-    /*botones de agregar al carrito*/
-    .submitBtn {
-        display: block;
-        margin-left: auto;
-        padding: 15px 30px;
-        border: none;
-        background-color: blue;
-        color: white;
         border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 30px;
-    }
-    
-    .submitBtn:hover {
-        background-color: #4b87f5;
-        transform: translateY(-2px);
+        padding: 0.5vw 1.5vw;
+        border: white;
     }
 
 

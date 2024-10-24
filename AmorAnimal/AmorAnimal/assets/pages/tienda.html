@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/estiloMascotasPerdidas.css" type="text/css">
-    <link rel="stylesheet" href="../css/estiloCrearFolleto.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <title>Mascotas Perdidas</title>
+    <title>Tienda</title>
+    <link rel="stylesheet" href="../css/estiloTienda.css" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body id="cuerpo">
@@ -37,31 +35,80 @@
                             <li class="nav-item">
                                 <a class="nav-link mx-lg-2" href="/index.html#contacto">Contacto</a>
                             </li>
-                    </ul>
+                        
+                        </ul>
                     </div> 
                 </div>
                 <a href="./login.html" id="botonLogin" class="login-button">Iniciar sesión</a>
+                <button type="submit" id="botonCerrarSesion" class="submitBtnCerrar">Cerrar Sesión</button>
                 <button id="botonAbrirMenu" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </nav>
     </header>
-    
+
+    <!-- Esta es la parte principal del sitio -->
     <main>
-        <div class="mensaje_mascota">
-            <h2>¿Tu mascota está perdida?</h2>
-            <h3>En Amor Animal, te ayudamos a encontrarlo</h3>
-            <a href="./crearFolleto.html" class="crearFolleto-button">CREA TU FOLLETO</a>
+
+    <form id="formProductoNuevo"  >
+        <h1 class="title">Agregue un nuevo producto</h1>
+
+        <div class="inputContainer">
+            <input type="text" class="input" id="nombre" placeholder="nombre" autocomplete="off">
+            <label for="nombre" class="label">Nombre</label>
         </div>
 
-        <div id="published-section" class="published-section">
-            <h2>Mascotas Perdidas</h2>
-            <div id="mascotasPublicadas">
-                <!-- Aquí se mostrarán las mascotas publicadas -->
+        <div class="inputContainer">
+            <input type="text" class="input" id="precio" placeholder="precio" autocomplete="off">
+            <label for="precio" class="label">Precio</label>
+        </div>
+
+        <div class="inputContainer">
+            <input type="text" class="input" id="descripcion" placeholder="descripcion" autocomplete="off">
+            <label for="descripcion" class="label">Descripcion</label>
+        </div>
+        
+        <div class="contenedorSeleccionImagen">
+            <button type="button" id="customButton" onclick="abrirSelector()">Seleccionar archivo .jpg</button>
+        </div>
+
+        <!-- Input de archivo oculto -->
+        <input type="file" id="fileInput" accept=".jpg" onchange="validarArchivo(this)" style="display:none;">
+        
+        <!-- Área de vista previa de la imagen -->
+        <img id="imagePreview" alt="Vista previa de la imagen" />
+        
+        <div class="col-auto">
+            <button type="button" onclick="agregaProd()" >Publicar Producto</button>
+        </div>
+    </form>
+
+       
+           
+            <div class="container-titulo">
+                <br>
+                <h3 class="titulo-tienda">PRODUCTOS</h3>
             </div>
-        </div>
-        </div>
+        
+            <br>
+            <div id="productos"></div>
+                <div id="accesorios">
+                    <h5>Accesorios</h5>
+                </div>
+                <div id="alimento">
+                    <h5>Alimento</h5>
+                </div>
+                <div id="vestuario">
+                    <h5>Vestuario</h5>
+                </div>
+                <div id="juguetes">
+                    <h5>Juguetes</h5>
+                </div>
+                <div id="correasCollares">
+                    <h5>Correas y collares</h5>
+                </div>
+         
     </main>
 
     <!-- Este es el pie de pagina -->
@@ -90,7 +137,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../js/crearFolleto.js"></script>
-    <script src="../js/mostrarDatos.js"></script>
+    <script src="../js/tienda.js"></script>
+    <script src="../js/login.js"></script>
 </body>
+
 </html>

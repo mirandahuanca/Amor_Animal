@@ -37,14 +37,14 @@ function borrarCarrito(){
             let carta= "";
             const contenedorprodAñadidos = document.getElementById("productosAñadidos");
             listaAñadidos.forEach((producto, index) =>{
-                carta += `<div class="card" id="producto${index}"">`;
-                carta += `<img src="${producto.imagen}" class="card-img-top" alt="...">`;
-                    carta += `<div class="card-body">`;
-                        carta += `<h5 class="card-title">${producto.nombre}</h5>`;
-                        carta += `<p class="card-text">$${producto.precio}</p>`;
-                        carta += `<p class="card-text2">Descripcion: ${producto.descripcion}</p>`;
-                    carta += `</div>`;
-                carta += `</div>`;
+                carta += `<div class="card" id="producto${index}"">;
+                <img src="${producto.imagen}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                       <p class="card-text">$${producto.precio}</p>
+                        <p class="card-text2">Descripcion: ${producto.descripcion}</p>
+                   </div>
+             </div>`;
 
                 cont = index;
             });

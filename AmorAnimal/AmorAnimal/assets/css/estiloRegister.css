@@ -11,7 +11,6 @@
 
 
 /*ENCABEZADO*/
-/* Encabezado (nav) */
 #navegador{
     position: fixed;
     top: 0;
@@ -75,8 +74,6 @@
 }
 
 
-
-
 /*MAIN*/
 main{
     display: grid;
@@ -84,15 +81,15 @@ main{
 }
 
 
-#formProductoNuevo {
-    display: none;
+/* FORMULARIO */
+
+.signupFrm {
+    display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 form {
-    align-items: center;
     width: 80%;
     padding-top: 7vw ;
     padding-bottom: 7vw ;
@@ -100,19 +97,10 @@ form {
     padding-right: 9vw;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
-    margin-top: 15vw;
-    margin-bottom: 10vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-  
+    margin-top: 25vw;
+    margin-bottom: 20vw;
 }
 
-#productosPublicadosUsuario{
-    margin-top: 5vw;
-    margin-bottom: 5vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-}
 .title {
     font-size: 8vw; /* Título más grande en móviles */
     text-align: center;
@@ -155,6 +143,22 @@ form {
     z-index: 0;
 }
 
+.contenedorBotonRegistrar {
+    text-align: center;
+}
+
+.submitBtn {
+    text-align: center;
+    padding: 3vw 8vw;
+    border: none;
+    background-color: rgb(190, 8, 8);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 4.5vw;
+    margin-top: 1vw;
+}
+
 .input:focus + .label {
     top: -2vw;
     left: 2vw;
@@ -176,189 +180,47 @@ form {
     font-weight: 600;
 }
 
-.contenedorSeleccionImagen{
+#contenedor-botonVolver{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-#customButton{
-    background-color: white;
-    color: black;
-    border: 0.1vw solid black;
-    font-size: 4.5vw;
-}
-#fileInput {
-    display: none;
-}
-
-/* Estiliza el botón personalizado */
-
-
-/* Estilo para la vista previa de la imagen */
-#imagePreview {
-    margin-top: 20px;
-    max-width: 100%; /* Hace que la imagen sea responsiva */
-    display: none; /* Inicialmente oculta */
-}
-
-.col-auto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vw;
-}
-
-form button{
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 4.5vw;
-}
-/* FIN DE FORMULARIO */
-
-.submitBtnCerrar {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 50px;
+#botonVolver{
+    color: #aeafb1;
     text-decoration: none;
-    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    width: 30vw;
+}
+
+#botonVolver h3{
+    font-size: 5vw;
+    margin: 1vw;
+}
+#botonVolver p{
+    font-size: 4vw;
+    margin-left: 2vw;
+    margin: 1vw;
+}
+
+
+/* INGRESO ADMINISTRADOR */
+.submitBtnCerrar {
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+    display: none;
 }
 
 .submitBtnCerrar:hover {
-    box-shadow: 0 0 8px rgb(98, 98, 98);
-}
-
-#botonCerrarSesion{
-    display: none;
-}
-
-
-
-.container-titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 2vw;
-}
-
-#productos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-
-
-/* CARRITO */
-.icono-carrito a{
-    position: fixed;
-    width: 70px; 
-    height: 70px;
-    bottom: 8vw; 
-    right: 8vw;
-    line-height: 76px;
-    background-color: black;
-    border-radius: 50%;
-    text-align: center;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-    color: white;
-    font-size: 35px;
-    z-index: 1000;
-}
-
-.contenedor-carrito{
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0; left: 0;
-    min-height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.395);
-}
-
-#carrito{
-    width: 85%;
-    height: 70vh;
-    background-color: white;
-}
-.contenedor-carrito #productosAgregadosAlCarrito{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: scroll;
-    height: 52vh;
-    margin: 0;
-    padding: 4vw;
-}
-::-webkit-scrollbar{
-    -webkit-appearance: none;
-}
-
-::-webkit-scrollbar:vertical {
-    width: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #797979;
-    border-radius: 20px;
-}
-
-#carritoParteSuperior{
-    display: flex;
-    justify-content: space-between; /* Distribuye los elementos a los extremos */
-    align-items: center; /* Alinea verticalmente los elementos */
-    padding: 2vw 4vw;
-    background-color: black;
-}
-
-#carritoParteSuperior i{
-    color: white;
-    font-size: 6vw;
-    padding: 0;
-}
-
-#carritoParteSuperior h2{
-    font-size: 6.5vw;
-    font-weight: bold;
-    color: rgb(236, 236, 236);
-    width: 35vw;
-    margin: 0;
-}
-
-#productosAgregadosAlCarrito p{
-    text-align: center;
-}
-
-#carrito h3{
-    font-size: 4.5vw;
-    font-weight: bold;
-    padding: 2vw 4vw;
-}
-
-#botonesCarrito{
-    display: flex;
-    justify-content: space-between; /* Distribuye los elementos a los extremos */
-    align-items: center; /* Alinea verticalmente los elementos */
-    margin: 1vw 3vw;
-}
-.carrito-button {
-    background-color: black;
-    color: rgb(255, 255, 255);
-    font-size: 4vw;
-    padding: 8px 20px;
-    text-decoration: none;
-    transition: 0.3s;
+    background-color: rgb(124, 124, 124);
+    transform: translateY(-2px);
 }
 
 
@@ -367,6 +229,7 @@ form button{
 footer{
     background-color: rgb(255, 255, 255);
     border-top: solid black;
+    margin-top: 15vw;
 }
 .contenedorDatosRedes{
     display: flex;
@@ -427,6 +290,8 @@ footer p{
     padding: 5vw;
     margin: 0;
 }
+
+
 
 /*--- FORMATO TABLET ---*/
 @media screen and (min-width: 768px){
@@ -722,13 +587,19 @@ footer p{
         visibility: visible;
     }
 
-
+    
     /*MAIN*/
-    /*Formulario*/
+    /* FORMULARIO */
+
+    .signupFrm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     form {
         width: 30%;
-        padding: 2vw 4vw 2vw 4vw;
+        padding: 2vw 5vw 2vw 5vw;
         border-radius: 8px;
         box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
         margin-top: 3vw;
@@ -777,6 +648,28 @@ footer p{
         z-index: 0;
     }
 
+    .contenedorBotonRegistrar {
+        text-align: center;
+    }
+
+    .submitBtn {
+        text-align: center;
+        padding: 0.5vw 2vw;
+        border: none;
+        background-color: rgb(190, 8, 8);
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1vw;
+        margin: 0;
+    }
+
+    .submitBtn:hover {
+        background-color: rgb(219, 10, 10);
+        transform: translateY(-1px);
+        text-align: center;
+    }
+
     .input:focus + .label {
         top: -1vw;
         left: 0.5vw;
@@ -790,72 +683,39 @@ footer p{
         border: 2px solid rgb(202, 33, 33);
     }
 
-    .input:not(:placeholder-shown) + .label{
+    .input:not(:placeholder-shown) + .label {
         top: -1vw;
         left: 0.5vw;
         z-index: 10;
         font-size: 1vw;
         font-weight: 600;
     }
-    
-    #customButton{
-        background-color: white;
-        color: black;
-        border: 0.1vw solid black;
-        font-size: 1vw;
-        padding: 0.6vw 2vw;
-    }
-    
-    .col-auto{
+
+    #contenedor-botonVolver{
         display: flex;
         justify-content: center;
-        align-items: center;
-        margin-top: 1.5vw;
     }
-    
-    form button{
-        background-color: black;
-        color: white;
-        padding: 1vw 1.5vw;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+
+    #botonVolver{
+        color: #aeafb1;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        width: 5vw;
+        height: 1.3vw;
+    }
+
+    #botonVolver h3{
+        height: 1.3vw;
         font-size: 1.2vw;
+        margin: 0;
+        margin-right: 0.4vw;
     }
-
-    #productosPublicadosUsuario{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 15px;
-        flex-wrap: wrap;
+    #botonVolver p{
+        height: 1.3vw;
+        font-size: 1vw;
+        margin: 0;
     }
-
-    .card-img-top{
-        max-width: 100%;
-        height: 17vw;
-    }
-
-    /*botones de agregar al carrito*/
-    .submitBtn {
-        display: block;
-        margin-left: auto;
-        padding: 15px 30px;
-        border: none;
-        background-color: blue;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 30px;
-    }
-    
-    .submitBtn:hover {
-        background-color: #4b87f5;
-        transform: translateY(-2px);
-    }
-
 
     /* CARRITO */
     .icono-carrito a{

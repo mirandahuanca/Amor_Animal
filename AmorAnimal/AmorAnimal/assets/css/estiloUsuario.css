@@ -28,6 +28,7 @@
     color: rgb(190, 8, 8);
 }
 
+
 .login-button {
     background-color: rgb(190, 8, 8);
     color: rgb(255, 255, 255);
@@ -77,184 +78,116 @@
 
 
 
+
 /*MAIN*/
 main{
     display: grid;
     grid-template-rows: auto;
 }
 
-
-#formProductoNuevo {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    
+.mensaje_mascota{
+    background-color: rgba(255, 255, 255, 0.658);
 }
 
-form {
-    align-items: center;
-    width: 80%;
-    padding-top: 7vw ;
-    padding-bottom: 7vw ;
-    padding-left: 9vw;
-    padding-right: 9vw;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
-    margin-top: 15vw;
-    margin-bottom: 10vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-  
-}
-
-#productosPublicadosUsuario{
+.mensaje_mascota h2{
     margin-top: 5vw;
-    margin-bottom: 5vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-}
-.title {
-    font-size: 8vw; /* Título más grande en móviles */
-    text-align: center;
-    margin-bottom: 5vw;
+    margin-left: 5vw;
+    font-weight: bold;
 }
 
-.inputContainer {
-    position: relative;
-    height: 12vw;
-    width: 100%;
-    margin-bottom: 5vw;
+.mensaje_mascota h3{
+    margin-top: 1vw;
+    margin-left: 5vw;
+    margin-bottom: 2vw;
+    font-weight: bold;
 }
 
-.input {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border: 1px solid #DADCE0;
-    border-radius: 7px;
-    font-size: 5vw;
-    outline: none;
-    background: none;
-    z-index: 1;
-    padding: 0 6vw;
-}
-
-::placeholder {
-    color: transparent;
-}
-
-.label {
-    position: absolute;
-    top: 3vw;
-    left: 4vw;
-    padding: 0 1vw;
-    background-color: white;
-    color: #aeafb1;
-    font-size: 4vw;
-    transition: 0.5s;
-    z-index: 0;
-}
-
-.input:focus + .label {
-    top: -2vw;
-    left: 2vw;
-    z-index: 10;
-    font-size: 4vw;
-    font-weight: 600;
-    color: black;
-}
-
-.input:focus {
-    border: 2px solid rgb(202, 33, 33);
-}
-
-.input:not(:placeholder-shown) + .label {
-    top: -2vw;
-    left: 2vw;
-    z-index: 10;
-    font-size: 4vw;
-    font-weight: 600;
-}
-
-.contenedorSeleccionImagen{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#customButton{
-    background-color: white;
-    color: black;
-    border: 0.1vw solid black;
-    font-size: 4.5vw;
-}
-#fileInput {
-    display: none;
-}
-
-/* Estiliza el botón personalizado */
-
-
-/* Estilo para la vista previa de la imagen */
-#imagePreview {
-    margin-top: 20px;
-    max-width: 100%; /* Hace que la imagen sea responsiva */
-    display: none; /* Inicialmente oculta */
-}
-
-.col-auto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vw;
-}
-
-form button{
-    background-color: black;
+.crearFolleto-button {
+    background-color: rgb(190, 8, 8);
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 4.5vw;
-}
-/* FIN DE FORMULARIO */
-
-.submitBtnCerrar {
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 14px;
+    font-size: large;
     padding: 8px 20px;
-    border-radius: 50px;
     text-decoration: none;
     transition: 0.3s;
+    margin-left: 5vw;
+    margin-bottom: 5vw;
+}
+    
+.crearFolleto-button:hover {
+    background-color: black;
+    box-shadow: 0 0 8px black;
 }
 
-.submitBtnCerrar:hover {
-    box-shadow: 0 0 8px rgb(98, 98, 98);
-}
 
-#botonCerrarSesion{
-    display: none;
-}
-
-
-
-.container-titulo{
+#contenedorPresentacion{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-top: 2vw;
+    align-items: center;
+}
+#presentacion{
+    background-color: white;
+    padding-top: 50vw;
+    padding-bottom: 50vw;
+    border: 4px solid black;
+    margin: 5vw;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+}
+#presentacion h1{
+    color: black;
+    text-align: center;
+    font-size: 12vw;
+    margin-bottom: 3vw;
+}
+#presentacion h3{
+    color: black;
+    font-size: 5vw;
+    text-align: center;
 }
 
-#productos{
-    display: flex;
+main{
+    display: block;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    gap: 10px;
-    flex-wrap: wrap;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+
+#contenedorDeInformacionUsuario{
+    background-color: #d2ffd3;
+    margin-bottom: 2vw;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none; /* Ocultar contenido por defecto */
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+}
+
+.dropdown-content p {
+    margin: 5px 0;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 5px 0;
 }
 
 
@@ -724,137 +657,6 @@ footer p{
 
 
     /*MAIN*/
-    /*Formulario*/
-
-    form {
-        width: 30%;
-        padding: 2vw 4vw 2vw 4vw;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(92, 99, 105, .5);
-        margin-top: 3vw;
-        margin-bottom: 3vw;
-    }
-
-    .title {
-        font-size: 2vw; /* Título más grande en móviles */
-        text-align: center;
-        margin-bottom: 2.5vw;
-    }
-
-    .inputContainer {
-        position: relative;
-        height: 3.5vw;
-        width: 100%;
-        margin-bottom: 2vw;
-    }
-
-    .input {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        border: 1px solid #DADCE0;
-        border-radius: 7px;
-        font-size: 1vw;
-        outline: none;
-        background: none;
-        z-index: 1;
-        padding: 0.5vw 2vw;
-    }
-
-    ::placeholder {
-        color: transparent;
-    }
-
-    .label {
-        position: absolute;
-        top: 1vw;
-        left: 1vw;
-        padding: 0 0.5vw;
-        background-color: white;
-        color: #aeafb1;
-        font-size: 1vw;
-        transition: 0.5s;
-        z-index: 0;
-    }
-
-    .input:focus + .label {
-        top: -1vw;
-        left: 0.5vw;
-        z-index: 10;
-        font-size: 1vw;
-        font-weight: 600;
-        color: black;
-    }
-
-    .input:focus {
-        border: 2px solid rgb(202, 33, 33);
-    }
-
-    .input:not(:placeholder-shown) + .label{
-        top: -1vw;
-        left: 0.5vw;
-        z-index: 10;
-        font-size: 1vw;
-        font-weight: 600;
-    }
-    
-    #customButton{
-        background-color: white;
-        color: black;
-        border: 0.1vw solid black;
-        font-size: 1vw;
-        padding: 0.6vw 2vw;
-    }
-    
-    .col-auto{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1.5vw;
-    }
-    
-    form button{
-        background-color: black;
-        color: white;
-        padding: 1vw 1.5vw;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1.2vw;
-    }
-
-    #productosPublicadosUsuario{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .card-img-top{
-        max-width: 100%;
-        height: 17vw;
-    }
-
-    /*botones de agregar al carrito*/
-    .submitBtn {
-        display: block;
-        margin-left: auto;
-        padding: 15px 30px;
-        border: none;
-        background-color: blue;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 30px;
-    }
-    
-    .submitBtn:hover {
-        background-color: #4b87f5;
-        transform: translateY(-2px);
-    }
 
 
     /* CARRITO */

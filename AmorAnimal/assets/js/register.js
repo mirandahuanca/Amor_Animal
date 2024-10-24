@@ -22,41 +22,17 @@ const botonAcceso = document.getElementById("botonAcceso");
 botonAcceso.onclick = (e) => {
     e.preventDefault(); // Evitar el envío del formulario por defecto
 
+    // Obtener los valores de los campos
     let nombre = document.getElementById("nombre").value;
     let apellido = document.getElementById("apellido").value;
     let dni = document.getElementById("DNI").value;
     let email = document.getElementById("email").value;
     let contraseña = document.getElementById("contraseña").value;
 
-       const Letras = /^[A-Za-z\s]+$/;
-       const Dni = /^\d{1,10}$/; 
-       const Email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
-  
+    // Validación de campos vacíos
     if (nombre === "" || apellido === "" || dni === "" || email === "" || contraseña === "") {
         alert("Falta completar algún campo");
-    } 
-
-    else if (!Letras.test(nombre)) {
-        alert("El nombre no debe contener números.");
-    } 
-    else if (!Letras.test(apellido)) {
-        alert("El apellido no debe contener números.");
-    } 
- 
-    else if (!Dni.test(dni)) {
-        alert("El DNI debe contener solo números y no más de 10 dígitos.");
-    } 
-
-     else if (!Email.test(email)) {
-        alert("El correo electrónico debe tener un '@' y un dominio.");
-    } 
-    else {
-        Swal.fire({
-            title: "¡Usuario Registrado!",
-            icon: "success",
-            timer: 80000,
-            showConfirmButton: false,
-        })
+    } else {
         // Verificar si hay usuarios en localStorage, si no, inicializar el array
         let usuariosRegistrados;
 

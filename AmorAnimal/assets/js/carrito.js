@@ -20,8 +20,8 @@ cerrarCarrito.onclick = (e) =>{
 
 
 
-function borrarCarrito(){
-    let productosAñadidos = document.getElementById("productosAñadidos");
+function mostrarCarrito(){
+    let productosAñadidos = document.getElementById("productosAgregadosAlCarrito");
     let contenedorBotones = document.getElementById("botonesCarrito");
     let mensajeVacio = document.getElementById("mensajeCarritoVacio");
 
@@ -35,16 +35,15 @@ function borrarCarrito(){
             listaAñadidos = JSON.parse(localStorage.getItem("productosAñadidos"));
 
             let carta= "";
-            const contenedorprodAñadidos = document.getElementById("productosAñadidos");
+            const contenedorprodAñadidos = document.getElementById("productosAgregadosAlCarrito");
             listaAñadidos.forEach((producto, index) =>{
-                carta += `<div class="card" id="producto${index}"">;
-                <img src="${producto.imagen}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                       <p class="card-text">$${producto.precio}</p>
-                        <p class="card-text2">Descripcion: ${producto.descripcion}</p>
-                   </div>
-             </div>`;
+                carta += `<div class="cardDelCarrito" id="producto${index}"">`;
+                carta += `<img src="${producto.imagen}" class="card-img-top-Carrito" alt="...">`;
+                    carta += `<div class="card-body-Carrito">`;
+                        carta += `<p class="card-title-Carrito">${producto.nombre}</p>`;
+                        carta += `<p class="card-text-Carrito">$${producto.precio}</p>`;
+                    carta += `</div>`;
+                carta += `</div>`;
 
                 cont = index;
             });
@@ -59,12 +58,12 @@ function borrarCarrito(){
     }
 }
 
-borrarCarrito();
+mostrarCarrito();
 
 
 
 function borrarProductosAñadidos(){
-    let productosAñadidos = document.getElementById("productosAñadidos");
+    let productosAñadidos = document.getElementById("productosAgregadosAlCarrito");
     let mensajeVacio = document.getElementById("mensajeCarritoVacio");
 
     mensajeVacio.style.display = "block";
@@ -78,9 +77,6 @@ let botonV = document.getElementById("botonVaciar");
 
 botonF.onclick = (e) =>{
     e.preventDefault();
-    Swal.fire({
-        title: 'GRACIAS POR SU COMPRA',
-    });
     
     localStorage.removeItem("productosAñadidos");
 

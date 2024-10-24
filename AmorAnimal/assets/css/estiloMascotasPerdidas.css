@@ -114,11 +114,7 @@ main{
     margin-left: 5vw;
     margin-bottom: 15vw;
 }
-    
-.crearFolleto-button:hover {
-    background-color: black;
-    box-shadow: 0 0 8px black;
-}
+
 
 #published-section{
     margin-top: 5vw;

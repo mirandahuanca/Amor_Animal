@@ -55,7 +55,9 @@ function displaymascotaPublicada() {
     });
 }
 
- let selectedTemplate; 
+ // Función para cargar las mascotas publicadas desde localStorage
+
+ let selectedTemplate; // Para almacenar la plantilla seleccionada
 
  // Función para seleccionar una plantilla y mostrar el formulario
 function seleccionarPlantilla(nombrePlantilla) {
@@ -104,37 +106,10 @@ function cargarMascotasPublicadas() {
 
 
 function publishPet() {
-    
     const nombre = document.getElementById("pet-nombre").value;
     const descripcion = document.getElementById("pet-descripcion").value;
     const telefono = document.getElementById("telefono").value;
     const imagen = document.getElementById("imagePreview").src;
-
-       const regexSinNumeros = /^[A-Za-z\s]+$/; 
-       const regexSoloNumeros = /^\d{1,10}$/; 
-       const regexDescripcion = /^[A-Za-z\s]+$/; 
-   
-       if (!regexSinNumeros.test(nombre)) {
-           alert('El nombre no debe contener números.');
-           return;
-       }
-   
-       if (!regexSoloNumeros.test(telefono)) {
-           alert('El teléfono debe contener solo números y no más de 10 dígitos.');
-           return;
-       }
-   
-
-       if (!regexDescripcion.test(descripcion)) {
-           alert('La descripción no debe contener números.');
-           return;
-       }
- 
-       if (!imagen || document.getElementById("fileInput").files.length === 0) {
-           alert('Debe sleccionar una imagen.');
-           return;
-       }
-   
 
     if (!nombre || !descripcion || !telefono || !selectedTemplate) {
         alert('Por favor, completa todos los campos y selecciona una plantilla.');
@@ -234,7 +209,8 @@ window.onload = function() {
 
         
     } else {
-        cargarMascotasPublicadas(); 
+        cargarMascotasPublicadas(); // Cargar las mascotas publicadas si está logueado
+      // Cargar los productos publicados si está logueado
     }
 };
 

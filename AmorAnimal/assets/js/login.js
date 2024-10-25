@@ -18,11 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 icon: "success",
                 timer: 5000,
             }).then(() => {
-                esAdmin()// Aquí llamamos a esAdmin después del inicio de sesión exitoso
-                location.reload();
+               // esAdmin()  Aquí llamamos a esAdmin después del inicio de sesión exitoso
+                window.location.href = "../../index.html";
+              
             });
             limpiarCampos(); 
-            
+         
         } else if (email === userEmail && contraseña === userContraseña) {
             localStorage.setItem("loggedInUser", "User1");
             Swal.fire({
@@ -30,17 +31,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 icon: "success",
                 timer: 5000,
             }).then(() => {
-                esAdmin();  // Aseguramos que el formulario no aparezca para los usuarios normales
-            location.reload(); 
+                // esAdmin() Aquí llamamos a esAdmin después del inicio de sesión exitoso
+                window.location.href = "../../index.html";
             });
+            
             limpiarCampos(); 
+            
         } else {
-            alert("Email o contraseña incorrectos");
+            alert("Email o contraseña son incorrectos");
         }
+        
     });
+   
+  
 });
-  // Llamar a la función manualmente para ver si se muestra el formulario
-
+ 
 
 
 function limpiarCampos() {

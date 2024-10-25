@@ -21,15 +21,15 @@ function cargarProductosActuales(){
     let carta= "";
     const contenedorproductos = document.getElementById("productosPublicadosUsuario");
     listaProductos.forEach((producto, index) =>{
-        carta += `<div class="card" id="producto${index}" style="width: 18rem;">`;
-        carta += `<img src="${producto.imagen}" class="card-img-top" alt="...">`;
-            carta += `<div class="card-body">`;
-                carta += `<h5 class="card-title">${producto.nombre}</h5>`;
-                carta += `<p class="card-text">$${producto.precio}</p>`;
-                carta += `<p class="card-text2">${producto.descripcion}</p>`;
-                carta += `<input type="submit" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">`;
-            carta += `</div>`;
-        carta += `</div>`;
+        carta += `<div class="card" id="producto${index}" style="width: 18rem;">
+        <img src="${producto.imagen}" class="card-img-top" alt="...">
+           <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+               <p class="card-text">$${producto.precio}</p>
+              <p class="card-text2">${producto.descripcion}</p>
+              <input type="submit" class="submitBtn" id="botonañadir${index}" value="Añadir al carrito">
+           </div>
+        </div>`;
 
         cont = index
     });
@@ -37,7 +37,6 @@ function cargarProductosActuales(){
     contenedorproductos.innerHTML = carta;
 
 
-    //Añade productos al carrito (array en local storage)
     let listaAñadidos;
 
     if(localStorage.getItem("productosAñadidos") == null){
@@ -69,14 +68,14 @@ let formProductos = document.getElementById("formProductoNuevo");
 
 function esAdmin() {
     let loggedInUser = localStorage.getItem("loggedInUser");
-    console.log("Usuario logueado:", loggedInUser);  // Esto nos dice qué usuario está logueado
+    console.log("Usuario logueado:", loggedInUser); 
 
     if (loggedInUser === "Admin") {
         console.log("El usuario es admin, mostrando el formulario");
-        formProductos.style.display = "block";// Mostrar el formulario
+        formProductos.style.display = "block";
     } else if(loggedInUser === "User1") {
         console.log("El usuario no es admin, ocultando el formulario");
-        formProductos.style.display = "block"; // Ocultar el formulario
+        formProductos.style.display = "block"; 
     }
 }
 esAdmin();
@@ -86,7 +85,6 @@ let productosParaEditar = document.querySelector('.productosParaEditar');
 let productosParaComprar = document.querySelector('.productosParaComprar');
 
 function productosActuales(){
-    // Obtener el valor real de display usando getComputedStyle
     const displayActual = window.getComputedStyle(formProductos).display;
     if(displayActual === "none"){
         productosParaEditar.style.display = "none";
@@ -100,20 +98,6 @@ function productosActuales(){
 }
 
 productosActuales();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function abrirSelector() {
     document.getElementById("fileInput").click();
@@ -139,10 +123,6 @@ function validarArchivo(input) {
 }
 
 
-
-
-
-// Función para mostrar producto publicado en el DOM
 function publicarProducto() {
     if(localStorage.getItem("productos") == null){
         listaProductos = [];
@@ -154,15 +134,15 @@ function publicarProducto() {
     let carta= "";
     const contenedorproductos = document.getElementById("productos");
     listaProductos.forEach((producto, index) =>{
-        carta += `<div class="card" id="producto${index}" style="width: 18rem;">`;
-        carta += `<img src="${producto.imagen}" class="card-img-top" alt="...">`;
-            carta += `<div class="card-body">`;
-                carta += `<h5 class="card-title">${producto.nombre}</h5>`;
-                carta += `<p class="card-text">$${producto.precio}</p>`;
-                carta += `<p class="card-text2">${producto.descripcion}</p>`;
-                carta += `<input type="submit" class="submitBtn" onclick="eliminarProducto(${index})" value="Eliminar">`;
-            carta += `</div>`;
-        carta += `</div>`;
+        carta += `<div class="card" id="producto${index}" style="width: 18rem;">
+       <img src="${producto.imagen}" class="card-img-top" alt="...">
+             <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+             <p class="card-text">$${producto.precio}</p>
+                <p class="card-text2">${producto.descripcion}</p>
+                <input type="submit" class="submitBtn" onclick="eliminarProducto(${index})" value="Eliminar">
+            </div>
+        </div>`;
 
         cont = index
     });
@@ -173,7 +153,6 @@ function publicarProducto() {
 document.onload = publicarProducto();
 
 
-// Función para guardar el producto en localStorage
 function guardarProducto(producto) {
     const productosGuardados = localStorage.getItem("productos");
     let productos = productosGuardados ? JSON.parse(productosGuardados) : [];
@@ -187,30 +166,40 @@ function verificarLogin() {
     const usuarioLogueado = localStorage.getItem("loggedInUser");
     return usuarioLogueado !== null;
 }
-
- // Función para publicar la mascota (y guardarla en localStorage)
 function publicarProductoUsado() {
+    const nombre = document.getElementById('nombre').value;
+    const precio = document.getElementById('precio').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const imagen = document.getElementById("imagePreview").src;
+
+    const Numeros = /^\d+(\.\d{1,2})?$/; // Solo números y opcionalmente con dos decimales
+    const Letras = /^[A-Za-z\s]+$/; // Solo letras y espacios
+
     if (!verificarLogin()) {
         Swal.fire({
             icon: "error",
             title: "Usted no ha iniciado sesión",
             text: "¿No tiene cuenta?",
             showConfirmButton: false,
-            showCloseButton: true, 
+            showCloseButton: true,
             footer: '<a href="register.html">Registrate Aquí</a>'
         });
         return;
-    }else{
-        const imagen = document.getElementById("imagePreview").src;
-        const nombre = document.getElementById('nombre').value;
-        const precio = document.getElementById('precio').value;
-        const descripcion = document.getElementById('descripcion').value;
+    }
 
+    if (!Numeros.test(precio)) {
+        alert("El precio debe ser un valor numérico válido.");
+    } 
+    else if (!Letras.test(descripcion)) {
+        alert("La descripción no debe contener números.");
+    } 
+    else if (imagen === "" || document.getElementById("fileInput").files.length === 0) {
+        alert("Debe seleccionar una imagen.");
+    } 
+    else {
         if (nombre === "" || precio === "" || descripcion === "" || document.getElementById("imagePreview").style.display === "none") {
             alert("Falta completar algún campo");
-        }
-        else{
-            // Crear objeto para el producto
+        } else {
             const producto = {
                 nombre: nombre,
                 precio: precio,
@@ -218,20 +207,18 @@ function publicarProductoUsado() {
                 imagen: imagen,
             };
         
-            // Guardar en localStorage
             guardarProducto(producto);
         
-            // Publicar el producto con el estilo de la plantilla seleccionada
             publicarProducto();
         
-            // Limpiar el formulario
             document.getElementById("nombre").value = "";
             document.getElementById("precio").value = "";
             document.getElementById("descripcion").value = "";
-            document.getElementById("imagePreview").style.display = "none"; // Oculta la imagen
+            document.getElementById("imagePreview").style.display = "none"; 
         }
     }
 }
+
 
 
 function eliminarProducto(index) {
@@ -240,9 +227,9 @@ function eliminarProducto(index) {
         let productos = JSON.parse(productosGuardados);
         // Eliminar el producto seleccionado
         productos.splice(index, 1);
-        // Guardar nuevamente en localStorage
+    
         localStorage.setItem("productos", JSON.stringify(productos));
-        publicarProducto(); // Recargar la lista
+        publicarProducto(); 
     }
 }
 

@@ -20,20 +20,41 @@ const formulario = document.getElementById("formulario");
 const botonAcceso = document.getElementById("botonAcceso");
 
 botonAcceso.onclick = (e) => {
-    e.preventDefault(); // Evitar el envío del formulario por defecto
-
-    // Obtener los valores de los campos
+    e.preventDefault(); 
     let nombre = document.getElementById("nombre").value;
     let apellido = document.getElementById("apellido").value;
     let dni = document.getElementById("DNI").value;
     let email = document.getElementById("email").value;
     let contraseña = document.getElementById("contraseña").value;
 
-    // Validación de campos vacíos
+
     if (nombre === "" || apellido === "" || dni === "" || email === "" || contraseña === "") {
         alert("Falta completar algún campo");
+ 
+    const regexLetras = /^[A-Za-z\s]+$/;
+    const regexDni = /^\d{1,10}$/; // Solo números y hasta 10 dígitos
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    if (nombre === "" || apellido === "" || dni === "" || email === "" || contraseña === "") {
+        alert("Falta completar algún campo");
+    } 
+
+    else if (!regexLetras.test(nombre)) {
+        alert("El nombre no debe contener números.");
+    } 
+    else if (!regexLetras.test(apellido)) {
+        alert("El apellido no debe contener números.");
+    } 
+
+    else if (!regexDni.test(dni)) {
+        alert("El DNI debe contener solo números y no más de 10 dígitos.");
+    } 
+ 
+      else if (!regexEmail.test(email)) {
+        alert("El correo electrónico debe tener un formato válido con '@' y un dominio.");
+    } 
     } else {
-        // Verificar si hay usuarios en localStorage, si no, inicializar el array
+     
         let usuariosRegistrados;
 
         if(localStorage.getItem("usuariosRegistrados") == null){
@@ -42,17 +63,21 @@ botonAcceso.onclick = (e) => {
         else{
             usuariosRegistrados = JSON.parse(localStorage.getItem("usuariosRegistrados"));
         }
-
-        // Crear el nuevo usuario y agregarlo a la lista
+        Swal.fire({
+            title: "Usuario Registrado",
+            icon: "success",
+            showConfirmButton: true,
+            timer: 5000,
+        })
+   
         let nuevoUsuario = new nuevoRegistro(nombre, apellido, dni, email, contraseña);
         usuariosRegistrados.push(nuevoUsuario);
 
-        // Guardar en localStorage
+
         localStorage.setItem("usuariosRegistrados", JSON.stringify(usuariosRegistrados));
 
         limpiarCampos();
-
-        // Redirigir a la página de usuario
+      
         window.location.href = "../pages/usuario.html";
     }
 }

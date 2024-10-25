@@ -115,7 +115,7 @@ cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
 
 
 
-/*
+
    function cargarProductosPublicados() {
     const productosGuardados = localStorage.getItem("productos");
     const contenedor = document.getElementById("productosPublicadosUsuario");
@@ -145,4 +145,3 @@ cargarMascotasPerdidas(); // Cargar las mascotas al cargar la página
 window.onload = function() {
     cargarProductosPublicados(); // Cargar los productos publicados
 };
-*/
